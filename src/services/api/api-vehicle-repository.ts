@@ -19,3 +19,4 @@ export class ApiVehicleRepository implements VehicleRepository {
     return found ? { ...found } : null
   }
 }
+

@@ -15,3 +15,4 @@ export function createPaginatedResponseSchema<T extends z.ZodTypeAny>(itemSchema
     meta: PaginationMetaSchema,
   })
 }
+

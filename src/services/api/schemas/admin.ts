@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { OrderStatusEnum, MoneyStringSchema, EgyptianPhoneSchema } from './order'
-import { UserRoleEnum } from './auth'
+import { UserRoleEnum, UserSchema } from './auth'
 import { CompatibilitySchema } from '@/services/schemas/product'
 import { PaginationMetaSchema } from './pagination'
 
@@ -53,6 +53,7 @@ export const CreateProductInputSchema = z.object({
   images: z.array(z.string()).min(1, 'يجب رفع صورة واحدة على الأقل'),
   description: z.string().max(2000),
   compatibility: z.array(CompatibilitySchema).default([]),
+  isActive: z.boolean().optional().default(true),
 })
 
 export type CreateProductInput = z.infer<typeof CreateProductInputSchema>
@@ -60,6 +61,12 @@ export type CreateProductInput = z.infer<typeof CreateProductInputSchema>
 export const UpdateProductInputSchema = CreateProductInputSchema.partial()
 
 export type UpdateProductInput = z.infer<typeof UpdateProductInputSchema>
+
+export const ReorderImagesRequestSchema = z.object({
+  images: z.array(z.string()).min(1, 'يجب تحديد ترتيب الصور (الصورة الأولى تعتبر الأساسية)'),
+})
+
+export type ReorderImagesRequest = z.infer<typeof ReorderImagesRequestSchema>
 
 export const CreateCategoryInputSchema = z.object({
   name: z.string().min(1, 'اسم التصنيف مطلوب'),
@@ -74,11 +81,24 @@ export const UpdateCategoryInputSchema = CreateCategoryInputSchema.partial()
 
 export type UpdateCategoryInput = z.infer<typeof UpdateCategoryInputSchema>
 
+export const ReorderCategoriesRequestSchema = z.object({
+  categoryIds: z.array(z.string()).min(1, 'يجب تحديد ترتيب التصنيفات'),
+})
+
+export type ReorderCategoriesRequest = z.infer<typeof ReorderCategoriesRequestSchema>
+
 export const CreateUserInputSchema = z.object({
   username: z.string().min(3, 'اسم المستخدم يجب ألا يقل عن 3 أحرف'),
   name: z.string().min(2, 'الاسم الكامل مطلوب'),
-  password: z.string().min(8, 'كلمة المرور يجب ألا تقل عن 8 أحرف'),
+  password: z.string().min(8, 'كلمة المرور المؤقتة يجب ألا تقل عن 8 أحرف').optional(),
   role: UserRoleEnum,
 })
 
 export type CreateUserInput = z.infer<typeof CreateUserInputSchema>
+
+export const CreateUserResponseSchema = z.object({
+  user: UserSchema,
+  temporaryPassword: z.string().min(8),
+})
+
+export type CreateUserResponse = z.infer<typeof CreateUserResponseSchema>

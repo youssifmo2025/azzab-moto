@@ -23,9 +23,9 @@ export class ApiOrderRepository implements OrderRepository {
   }
 
   async lookupOrder(orderNumber: string, phone: string): Promise<OrderLookupResult> {
-    return this.client.get<OrderLookupResult>('/api/orders/lookup', {
-      params: { orderNumber, phone },
+    return this.client.post<OrderLookupResult>('/api/orders/lookup', { orderNumber, phone }, {
       responseSchema: OrderLookupResultSchema,
     })
   }
 }
+

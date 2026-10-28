@@ -4,6 +4,8 @@ import { ApiProductRepository } from '@/services/api/api-product-repository'
 import { ApiCategoryRepository } from '@/services/api/api-category-repository'
 import { ApiVehicleRepository } from '@/services/api/api-vehicle-repository'
 import { ApiOrderRepository } from '@/services/api/api-order-repository'
+import { ApiClientError } from '@/services/api/schemas/error'
+import { setMockUser } from '@/services/mock/handlers/auth'
 
 describe('API Repositories (MSW backed)', () => {
   let client: ApiClient
@@ -18,6 +20,14 @@ describe('API Repositories (MSW backed)', () => {
     categoryRepo = new ApiCategoryRepository(client)
     vehicleRepo = new ApiVehicleRepository(client)
     orderRepo = new ApiOrderRepository(client)
+    setMockUser({
+      id: 'usr-1',
+      username: 'admin',
+      name: 'مدير النظام',
+      role: 'admin',
+      disabled: false,
+      mustChangePassword: false,
+    })
   })
 
   describe('ApiProductRepository', () => {
@@ -98,7 +108,7 @@ describe('API Repositories (MSW backed)', () => {
       expect(confirmation.total).toBeDefined()
     })
 
-    it('looks up existing order by orderNumber and phone', async () => {
+    it('looks up existing order by orderNumber and phone via POST', async () => {
       const result = await orderRepo.lookupOrder('AZ-202610-1001', '01012345678')
       expect(result.orderNumber).toBe('AZ-202610-1001')
       expect(result.status).toBe('new')
@@ -107,6 +117,69 @@ describe('API Repositories (MSW backed)', () => {
 
     it('fails order lookup with generic error when phone does not match', async () => {
       await expect(orderRepo.lookupOrder('AZ-202610-1001', '01099999999')).rejects.toThrow()
+    })
+  })
+
+  describe('RBAC Roles Enforcement', () => {
+    it('allows orders_manager to read products and stock levels', async () => {
+      setMockUser({
+        id: 'usr-2',
+        username: 'manager',
+        name: 'مسؤول الطلبات',
+        role: 'orders_manager',
+        disabled: false,
+        mustChangePassword: false,
+      })
+
+      const res = await client.get<{ data: unknown[] }>('/api/admin/products')
+      expect(res.data.length).toBeGreaterThan(0)
+    })
+
+    it('forbids orders_manager from creating a product (403 Forbidden)', async () => {
+      setMockUser({
+        id: 'usr-2',
+        username: 'manager',
+        name: 'مسؤول الطلبات',
+        role: 'orders_manager',
+        disabled: false,
+        mustChangePassword: false,
+      })
+
+      try {
+        await client.post('/api/admin/products', { name: 'قطعة ممنوعة' })
+        expect.fail('Should have failed with 403')
+      } catch (err) {
+        const apiErr = err as ApiClientError
+        expect(apiErr.status).toBe(403)
+        expect(apiErr.code).toBe('FORBIDDEN')
+      }
+    })
+
+    it('forbids orders_manager from creating a category (403 Forbidden)', async () => {
+      setMockUser({
+        id: 'usr-2',
+        username: 'manager',
+        name: 'مسؤول الطلبات',
+        role: 'orders_manager',
+        disabled: false,
+        mustChangePassword: false,
+      })
+
+      try {
+        await client.post('/api/admin/categories', { name: 'تصنيف ممنوع', slug: 'forbidden-cat', icon: 'Box' })
+        expect.fail('Should have failed with 403')
+      } catch (err) {
+        const apiErr = err as ApiClientError
+        expect(apiErr.status).toBe(403)
+        expect(apiErr.code).toBe('FORBIDDEN')
+      }
+    })
+
+    it('allows admin to soft delete a product via PATCH isActive=false', async () => {
+      const res = await client.patch<{ id: string; isActive: boolean }>('/api/admin/products/prod-001', {
+        isActive: false,
+      })
+      expect(res.isActive).toBe(false)
     })
   })
 })

@@ -68,6 +68,13 @@ export const OrderConfirmationSchema = z.object({
 
 export type OrderConfirmation = z.infer<typeof OrderConfirmationSchema>
 
+export const OrderLookupRequestSchema = z.object({
+  orderNumber: z.string().min(1, 'رقم الطلب مطلوب'),
+  phone: EgyptianPhoneSchema,
+})
+
+export type OrderLookupRequest = z.infer<typeof OrderLookupRequestSchema>
+
 export const OrderLookupResultSchema = z.object({
   orderNumber: z.string(),
   status: OrderStatusEnum,

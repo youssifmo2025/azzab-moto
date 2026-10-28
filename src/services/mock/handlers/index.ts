@@ -9,3 +9,4 @@ export const handlers = [
   ...authHandlers,
   ...adminHandlers,
 ]
+

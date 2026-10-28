@@ -10,6 +10,7 @@ export const UserSchema = z.object({
   name: z.string().min(2),
   role: UserRoleEnum,
   disabled: z.boolean().optional().default(false),
+  mustChangePassword: z.boolean().optional().default(false),
 })
 
 export type User = z.infer<typeof UserSchema>
@@ -33,3 +34,11 @@ export const AuthSessionSchema = z.object({
 })
 
 export type AuthSession = z.infer<typeof AuthSessionSchema>
+
+export const AdminResetPasswordResponseSchema = z.object({
+  success: z.literal(true),
+  temporaryPassword: z.string().min(8),
+  message: z.string(),
+})
+
+export type AdminResetPasswordResponse = z.infer<typeof AdminResetPasswordResponseSchema>

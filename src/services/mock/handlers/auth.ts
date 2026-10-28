@@ -1,11 +1,13 @@
 import { http, HttpResponse, delay } from 'msw'
-import type { LoginRequest, ChangePasswordRequest } from '@/services/api/schemas/auth'
+import type { LoginRequest, ChangePasswordRequest, User } from '@/services/api/schemas/auth'
 
-let currentUser: { id: string; username: string; name: string; role: 'admin' | 'orders_manager' } | null = {
+let currentUser: User | null = {
   id: 'usr-1',
   username: 'admin',
   name: 'مدير النظام',
   role: 'admin',
+  disabled: false,
+  mustChangePassword: false,
 }
 
 export const authHandlers = [
@@ -42,6 +44,8 @@ export const authHandlers = [
         username: 'admin',
         name: 'مدير النظام',
         role: 'admin',
+        disabled: false,
+        mustChangePassword: false,
       }
       return HttpResponse.json(
         { user: currentUser },
@@ -59,12 +63,33 @@ export const authHandlers = [
         username: 'manager',
         name: 'مسؤول الطلبات',
         role: 'orders_manager',
+        disabled: false,
+        mustChangePassword: false,
       }
       return HttpResponse.json(
         { user: currentUser },
         {
           headers: {
             'Set-Cookie': 'session_id=mock-session-manager; HttpOnly; Path=/; SameSite=Lax',
+          },
+        },
+      )
+    }
+
+    if (body.username === 'forced_user' && body.password === 'temp12345') {
+      currentUser = {
+        id: 'usr-3',
+        username: 'forced_user',
+        name: 'موظف تجريبي',
+        role: 'orders_manager',
+        disabled: false,
+        mustChangePassword: true,
+      }
+      return HttpResponse.json(
+        { user: currentUser },
+        {
+          headers: {
+            'Set-Cookie': 'session_id=mock-session-forced; HttpOnly; Path=/; SameSite=Lax',
           },
         },
       )
@@ -114,10 +139,16 @@ export const authHandlers = [
       )
     }
 
+    currentUser.mustChangePassword = false
+
     return HttpResponse.json({ success: true, message: 'تم تحديث كلمة المرور بنجاح' })
   }),
 ]
 
-export function setMockUser(user: typeof currentUser) {
+export function getCurrentUser(): User | null {
+  return currentUser
+}
+
+export function setMockUser(user: User | null) {
   currentUser = user
 }

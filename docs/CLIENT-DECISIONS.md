@@ -66,11 +66,11 @@
 
 ---
 
-### OQ-008 — CSV Export Scope (Admin)
-**Question:** Should the CSV export include customer phone numbers and addresses, or only order summary data (order number, items, total, status, date)?  
-**Impact:** Privacy/GDPR-equivalent considerations. Full export exposes PII. Summary export is safer for delegated roles.  
-**Current implementation:** Phase 3 plans a CSV export endpoint (`GET /api/admin/orders/export/csv`) — scope to be confirmed.  
-**Deadline:** Before Phase 3.
+### OQ-008 — CSV Export Role Permission & Scope
+**Question:** Should the CSV export (`GET /api/admin/orders/export/csv`) be restricted strictly to `admin`, or should `orders_manager` also be allowed to export for shipping coordination? And should the export contain full customer PII (phone, detailed address) or sanitized order summaries?  
+**Impact:** Privacy / data protection risk. Granting export to `orders_manager` allows bulk downloading of customer phone numbers and locations.  
+**Current implementation default:** Restricted strictly to `admin` role only. Changing to allow `orders_manager` requires client confirmation.  
+**Deadline:** Before Phase 3 admin dashboard launch.
 
 ---
 

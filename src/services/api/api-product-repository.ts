@@ -17,6 +17,7 @@ interface ApiProductPayload {
   currency: 'EGP'
   availability: 'in_stock' | 'out_of_stock' | 'order_only'
   stockQuantity?: number | null
+  isActive?: boolean
   images: string[]
   description: string
   compatibility: Array<{
@@ -56,6 +57,7 @@ export class ApiProductRepository implements ProductRepository {
       currency: payload.currency ?? 'EGP',
       availability: payload.availability,
       stockQuantity: payload.stockQuantity ?? null,
+      isActive: payload.isActive ?? true,
       images: payload.images,
       description: payload.description,
       compatibility: payload.compatibility ?? [],
@@ -127,3 +129,4 @@ export class ApiProductRepository implements ProductRepository {
     return res.data.map((p) => this.mapToDomain(p))
   }
 }
+

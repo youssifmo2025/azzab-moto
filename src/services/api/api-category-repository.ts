@@ -25,3 +25,4 @@ export class ApiCategoryRepository implements CategoryRepository {
     return found ? { ...found } : null
   }
 }
+

@@ -72,3 +72,4 @@ describe('ApiClient', () => {
     expect(client.getCsrfToken()).toBe('custom-csrf-123')
   })
 })
+

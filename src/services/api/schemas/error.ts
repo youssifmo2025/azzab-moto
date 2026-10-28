@@ -21,3 +21,4 @@ export class ApiClientError extends Error {
     this.fieldErrors = error.fieldErrors
   }
 }
+

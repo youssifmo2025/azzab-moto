@@ -178,11 +178,20 @@ export const orderHandlers = [
     )
   }),
 
-  http.get('/api/orders/lookup', async ({ request }) => {
+  http.post('/api/orders/lookup', async ({ request }) => {
     await delay(200)
-    const url = new URL(request.url)
-    const orderNumber = url.searchParams.get('orderNumber')?.trim().toUpperCase()
-    const phone = url.searchParams.get('phone')?.trim()
+    let body: { orderNumber?: string; phone?: string }
+    try {
+      body = (await request.json()) as { orderNumber?: string; phone?: string }
+    } catch {
+      return HttpResponse.json(
+        { code: 'BAD_REQUEST', message: 'صيغة الطلب غير صحيحة' },
+        { status: 400 },
+      )
+    }
+
+    const orderNumber = body.orderNumber?.trim().toUpperCase()
+    const phone = body.phone?.trim()
 
     const found = orders.find(
       (o) => o.orderNumber.toUpperCase() === orderNumber && o.customer.phone === phone,
@@ -212,3 +221,4 @@ export const orderHandlers = [
 ]
 
 export { orders }
+

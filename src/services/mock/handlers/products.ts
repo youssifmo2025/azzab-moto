@@ -112,3 +112,4 @@ export const productHandlers = [
     return HttpResponse.json(mockModels)
   }),
 ]
+
