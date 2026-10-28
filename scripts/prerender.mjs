@@ -274,6 +274,8 @@ console.log('✅ Generated sitemap.xml')
 // 7. Generate robots.txt
 const robotsContent = `User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin/
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `

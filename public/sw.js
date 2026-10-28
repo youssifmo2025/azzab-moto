@@ -53,6 +53,11 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
+  // Never intercept or cache /api/* or /admin/*
+  if (url.pathname.startsWith('/api') || url.pathname.startsWith('/admin')) {
+    return
+  }
+
   // 1. Navigation requests (HTML pages): Network-first with offline.html fallback
   if (request.mode === 'navigate') {
     event.respondWith(
