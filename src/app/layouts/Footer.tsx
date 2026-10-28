@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import { MessageCircle, Phone, MapPin, ShieldCheck, Truck, CreditCard } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
+import { MessageCircle, Phone, MapPin, ShieldCheck, Truck, CreditCard, Shield } from 'lucide-react'
 import logoImg from '@/assets/logo.png'
 import { siteConfig } from '@/app/config/site'
 import { buildWhatsAppUrl } from '@/shared/lib/whatsapp'
@@ -8,6 +8,7 @@ import { buildWhatsAppUrl } from '@/shared/lib/whatsapp'
 const CURRENT_YEAR = new Date().getFullYear()
 
 export function Footer() {
+  const navigate = useNavigate()
   const whatsappUrl = buildWhatsAppUrl('السلام عليكم، أود التواصل مع إدارة متجر عزاب موتو.')
 
   return (
@@ -174,10 +175,19 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-10 border-t border-border pt-6 text-center text-xs text-body/80">
+        <div className="mt-10 border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-body/80">
           <p>
             جميع الحقوق محفوظة &copy; {CURRENT_YEAR} {siteConfig.nameEn} ({siteConfig.name}).
           </p>
+          <button
+            type="button"
+            onClick={() => navigate('/admin/login')}
+            className="inline-flex items-center gap-1.5 text-body/60 hover:text-accent transition-colors cursor-pointer"
+            aria-label="بوابة الإدارة"
+          >
+            <Shield className="h-3.5 w-3.5" aria-hidden="true" />
+            <span>بوابة الإدارة</span>
+          </button>
         </div>
       </div>
     </footer>

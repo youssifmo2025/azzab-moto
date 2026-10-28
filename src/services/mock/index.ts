@@ -6,9 +6,7 @@
  * guaranteeing 0 kB added to the production client bundle.
  */
 export async function enableMocking(): Promise<void> {
-  const isEnabled =
-    (import.meta.env.DEV || import.meta.env.VITE_DEMO_MODE === 'true') &&
-    (import.meta.env.VITE_DATA_SOURCE === 'api' || import.meta.env.VITE_DEMO_MODE === 'true')
+  const isEnabled = import.meta.env.DEV || import.meta.env.VITE_DEMO_MODE === 'true'
 
   if (isEnabled) {
     const { worker } = await import('./browser')

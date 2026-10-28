@@ -15,7 +15,9 @@ export * from './json'
 export * from './api'
 
 const isApiSource =
-  import.meta.env?.VITE_DATA_SOURCE === 'api' || import.meta.env?.VITE_DEMO_MODE === 'true'
+  import.meta.env.DEV ||
+  import.meta.env?.VITE_DATA_SOURCE === 'api' ||
+  import.meta.env?.VITE_DEMO_MODE === 'true'
 
 export const activeProductRepository = isApiSource ? new ApiProductRepository() : jsonProductRepo
 export const activeCategoryRepository = isApiSource ? new ApiCategoryRepository() : jsonCategoryRepo

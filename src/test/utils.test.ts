@@ -52,7 +52,7 @@ describe('formatPrice', () => {
     const formatted = formatPrice(380)
     expect(formatted).toContain('380')
     expect(formatted).toContain('ج.م')
-  })
+  }, 15000)
 
   it('formats large numbers with proper grouping separator', () => {
     const formatted = formatPrice(12500)

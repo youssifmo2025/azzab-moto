@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { X, MessageCircle, ShoppingBag, Info, Phone, ShieldCheck, Home, Package } from 'lucide-react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { X, MessageCircle, ShoppingBag, Info, Phone, ShieldCheck, Home, Package, Shield } from 'lucide-react'
 import logoImg from '@/assets/logo.png'
 import { siteConfig } from '@/app/config/site'
 import { features } from '@/app/config/features'
@@ -14,6 +14,7 @@ interface MobileDrawerProps {
 }
 
 export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
+  const navigate = useNavigate()
   const location = useLocation()
   const { itemCount } = useCart()
   const drawerRef = useRef<HTMLDivElement>(null)
@@ -169,7 +170,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
         </nav>
 
         {/* Drawer Footer CTA */}
-        <div className="border-t border-border p-4 bg-alt/50">
+        <div className="border-t border-border p-4 bg-alt/50 space-y-2">
           <a
             href={whatsappUrl}
             target="_blank"
@@ -179,6 +180,18 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             <MessageCircle className="h-4 w-4" aria-hidden="true" />
             <span>طلب عبر واتساب</span>
           </a>
+
+          <button
+            type="button"
+            onClick={() => {
+              onClose()
+              navigate('/admin/login')
+            }}
+            className="flex w-full items-center justify-center gap-1.5 rounded-[10px] border border-border bg-base px-4 py-2 text-xs font-medium text-body/80 hover:text-accent hover:border-accent transition cursor-pointer"
+          >
+            <Shield className="h-3.5 w-3.5" aria-hidden="true" />
+            <span>بوابة الإدارة</span>
+          </button>
         </div>
       </div>
     </div>

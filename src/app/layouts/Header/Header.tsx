@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Menu, MessageCircle, Search } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Menu, MessageCircle, Search, Shield } from 'lucide-react'
 import logoImg from '@/assets/logo.png'
 import { siteConfig } from '@/app/config/site'
 import { features } from '@/app/config/features'
@@ -11,6 +11,7 @@ import { MobileDrawer } from '../MobileDrawer'
 import { CartIcon } from '@/features/cart/components/CartIcon'
 
 export function Header() {
+  const navigate = useNavigate()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false)
 
@@ -96,6 +97,17 @@ export function Header() {
                 تتبع الطلب
               </Link>
             )}
+
+            {/* Admin Portal Button (Button element, not an anchor link, for crawler exclusion & security) */}
+            <button
+              type="button"
+              onClick={() => navigate('/admin/login')}
+              aria-label="لوحة الإدارة"
+              title="لوحة الإدارة"
+              className="hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-[10px] border border-border bg-base text-secondary transition hover:border-accent hover:text-accent cursor-pointer"
+            >
+              <Shield className="h-4 w-4" aria-hidden="true" />
+            </button>
 
             {/* Shopping Cart (Business Feature: ON) */}
             {features.cart && <CartIcon />}

@@ -48,7 +48,18 @@ export function AdminAuthProvider({ children }: { children: ReactNode }) {
       setUser(res.user)
       return res.user
     } catch (err) {
-      const msg = err instanceof ApiClientError ? err.message : 'تعذر تسجيل الدخول، يرجى المحاولة مجدداً'
+      let msg = 'تعذر تسجيل الدخول، يرجى المحاولة مجدداً'
+      if (err instanceof ApiClientError) {
+        if (err.status === 401) {
+          msg = 'اسم المستخدم أو كلمة المرور غير صحيحة'
+        } else if (err.status === 404) {
+          msg = 'تعذر الاتصال بخدمة التحقق (404 غير موجود)'
+        } else if (err.status === 429) {
+          msg = err.message
+        } else {
+          msg = err.message || msg
+        }
+      }
       setError(msg)
       throw err
     } finally {
