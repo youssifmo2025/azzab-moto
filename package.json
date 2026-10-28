@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.app.json --noEmit && vite build && node scripts/prerender.mjs",
+    "build:demo": "tsc -p tsconfig.app.json --noEmit && vite build --mode demo && node scripts/prerender.mjs",
     "preview": "vite preview",
     "typecheck": "tsc -p tsconfig.app.json --noEmit",
     "lint": "node node_modules/oxlint/bin/oxlint src && node node_modules/eslint/bin/eslint.js src --no-error-on-unmatched-pattern",

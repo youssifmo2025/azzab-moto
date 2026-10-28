@@ -14,6 +14,7 @@ import {
   X,
   ShieldCheck,
   ShieldAlert,
+  RotateCcw,
 } from 'lucide-react'
 
 export default function AdminLayout() {
@@ -82,6 +83,16 @@ export default function AdminLayout() {
       roles: ['admin'],
     },
   ]
+
+  const isDemo = import.meta.env.DEV || import.meta.env.VITE_DEMO_MODE === 'true'
+
+  const handleResetDemo = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('am_demo_orders_v1')
+      localStorage.removeItem('am_demo_products_v1')
+      window.location.reload()
+    }
+  }
 
   const handleLogout = async () => {
     await logout()
@@ -217,8 +228,28 @@ export default function AdminLayout() {
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 min-w-0 p-4 md:p-8 overflow-y-auto">
-        <Outlet />
+      <main className="flex-1 min-w-0 flex flex-col overflow-y-auto">
+        {/* Demo Mode Notice Banner */}
+        {isDemo && (
+          <div className="bg-amber-50 border-b border-amber-200 px-4 py-2.5 text-xs flex flex-wrap items-center justify-between gap-2 text-amber-900">
+            <div className="flex items-center gap-2">
+              <span className="inline-block w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+              <span>نسخة تجريبية: البيانات محفوظة في هذا المتصفح فقط (localStorage).</span>
+            </div>
+            <button
+              type="button"
+              onClick={handleResetDemo}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-amber-300 text-amber-800 hover:bg-amber-100 font-semibold text-[11px] transition shadow-2xs cursor-pointer"
+            >
+              <RotateCcw className="w-3 h-3" />
+              <span>إعادة تعيين البيانات التجريبية</span>
+            </button>
+          </div>
+        )}
+
+        <div className="flex-1 p-4 md:p-8">
+          <Outlet />
+        </div>
       </main>
     </div>
   )

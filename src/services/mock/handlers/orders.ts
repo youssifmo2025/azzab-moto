@@ -1,8 +1,8 @@
 import { http, HttpResponse, delay } from 'msw'
-import { initialMockProducts, initialMockOrders, type MockOrder } from '../data/mock-data'
+import { initialMockProducts, loadDemoOrders, saveDemoOrders, type MockOrder } from '../data/mock-data'
 import type { CreateOrderRequest } from '@/services/api/schemas/order'
 
-const orders: MockOrder[] = [...initialMockOrders]
+const orders: MockOrder[] = loadDemoOrders()
 const seenIdempotencyKeys = new Set<string>()
 
 export const orderHandlers = [
@@ -155,6 +155,7 @@ export const orderHandlers = [
     }
 
     orders.unshift(newOrder)
+    saveDemoOrders(orders)
 
     return HttpResponse.json(
       {

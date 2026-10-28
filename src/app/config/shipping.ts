@@ -48,3 +48,4 @@ export function getShippingFeeForGovernorate(governorate?: string): number {
   const fee = GOVERNORATE_SHIPPING_FEES[governorate as EgyptianGovernorate]
   return typeof fee === 'number' ? fee : 0
 }
+

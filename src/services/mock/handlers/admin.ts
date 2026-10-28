@@ -1,6 +1,12 @@
 import { http, HttpResponse, delay } from 'msw'
 import { orders } from './orders'
-import { initialMockProducts, mockCategories, type MockProduct } from '../data/mock-data'
+import {
+  mockCategories,
+  type MockProduct,
+  saveDemoOrders,
+  loadDemoProducts,
+  saveDemoProducts,
+} from '../data/mock-data'
 import { getCurrentUser } from './auth'
 import type { OrderStatus } from '@/services/api/schemas/order'
 
@@ -8,9 +14,9 @@ export interface ExtendedMockProduct extends MockProduct {
   isActive: boolean
 }
 
-const adminProducts: ExtendedMockProduct[] = initialMockProducts.map((p) => ({
+const adminProducts: ExtendedMockProduct[] = loadDemoProducts().map((p) => ({
   ...p,
-  isActive: true,
+  isActive: (p as ExtendedMockProduct).isActive ?? true,
 }))
 
 const adminCategories = [...mockCategories]
@@ -172,6 +178,7 @@ export const adminHandlers = [
       changedBy: getCurrentUser()?.name || 'Admin',
       note: body.note,
     })
+    saveDemoOrders(orders)
 
     return HttpResponse.json(order)
   }),
@@ -263,6 +270,7 @@ export const adminHandlers = [
       isActive: body.isActive ?? true,
     }
     adminProducts.unshift(newProduct)
+    saveDemoProducts(adminProducts)
     return HttpResponse.json(newProduct, { status: 201 })
   }),
 
@@ -279,6 +287,7 @@ export const adminHandlers = [
     }
     const body = (await request.json()) as Partial<ExtendedMockProduct>
     Object.assign(product, body)
+    saveDemoProducts(adminProducts)
     return HttpResponse.json(product)
   }),
 
@@ -296,6 +305,7 @@ export const adminHandlers = [
 
     const uploadedUrls = [`/images/products/upload-${Date.now()}.webp`]
     product.images.push(...uploadedUrls)
+    saveDemoProducts(adminProducts)
     return HttpResponse.json(uploadedUrls, { status: 201 })
   }),
 
@@ -312,6 +322,7 @@ export const adminHandlers = [
     }
 
     product.images = product.images.filter((img) => !img.includes(String(imageId)))
+    saveDemoProducts(adminProducts)
     return HttpResponse.json({ success: true, message: 'تم حذف الصورة بنجاح' })
   }),
 
@@ -331,6 +342,7 @@ export const adminHandlers = [
     if (Array.isArray(body.images)) {
       product.images = body.images
     }
+    saveDemoProducts(adminProducts)
     return HttpResponse.json({ success: true, images: product.images })
   }),
 
