@@ -34,6 +34,7 @@ export const ProductSchema = z.object({
   price: z.number().positive('Price must be greater than 0'),
   currency: z.literal('EGP').default('EGP'),
   availability: ProductAvailabilitySchema,
+  stockQuantity: z.number().int().nonnegative().nullable().optional(),
   images: z
     .array(z.string().min(1))
     .min(1, 'At least one product image is required')

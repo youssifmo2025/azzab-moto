@@ -1,0 +1,1173 @@
+openapi: 3.1.0
+info:
+  title: AZZAB MOTO REST API
+  description: Official REST API specification for AZZAB MOTO TVS motorcycle spare parts e-commerce and admin management.
+  version: 1.0.0
+servers:
+  - url: /api
+    description: Current host API root
+
+paths:
+  /products:
+    get:
+      summary: List catalog products
+      tags: [Public Products]
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: perPage
+          in: query
+          schema:
+            type: integer
+            default: 20
+        - name: categoryId
+          in: query
+          schema:
+            type: string
+        - name: modelId
+          in: query
+          schema:
+            type: string
+        - name: year
+          in: query
+          schema:
+            type: integer
+        - name: q
+          in: query
+          description: Search term
+          schema:
+            type: string
+        - name: availability
+          in: query
+          schema:
+            type: string
+            enum: [in_stock, out_of_stock, order_only]
+        - name: sort
+          in: query
+          schema:
+            type: string
+            enum: [price_asc, price_desc, latest, name_asc]
+      responses:
+        '200':
+          description: Paginated product list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProducts'
+
+  /products/{slug}:
+    get:
+      summary: Get single product by slug
+      tags: [Public Products]
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Product not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+
+  /categories:
+    get:
+      summary: List all active categories
+      tags: [Public Categories]
+      responses:
+        '200':
+          description: Category list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+
+  /models:
+    get:
+      summary: List all motorcycle models
+      tags: [Public Vehicles]
+      responses:
+        '200':
+          description: Model list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Model'
+
+  /orders:
+    post:
+      summary: Submit a Cash-on-Delivery customer order
+      tags: [Public Orders]
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrderRequest'
+      responses:
+        '201':
+          description: Order created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderConfirmation'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+        '409':
+          description: Stock conflict or out of stock
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+
+  /orders/lookup:
+    get:
+      summary: Lookup order status by order number and phone
+      tags: [Public Orders]
+      parameters:
+        - name: orderNumber
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: phone
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order lookup result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderLookupResult'
+        '404':
+          description: Order not found (generic message)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+
+  /auth/csrf-token:
+    get:
+      summary: Fetch CSRF token for mutating requests
+      tags: [Authentication]
+      responses:
+        '200':
+          description: CSRF token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  csrfToken:
+                    type: string
+                required: [csrfToken]
+
+  /auth/login:
+    post:
+      summary: Authenticate staff member
+      tags: [Authentication]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Logged in successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthSession'
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+        '429':
+          description: Rate limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+
+  /auth/logout:
+    post:
+      summary: Log out and clear session cookie
+      tags: [Authentication]
+      responses:
+        '200':
+          description: Logged out
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+
+  /auth/me:
+    get:
+      summary: Get currently logged in user info
+      tags: [Authentication]
+      security:
+        - cookieAuth: []
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+
+  /auth/change-password:
+    post:
+      summary: Change own password
+      tags: [Authentication]
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordRequest'
+      responses:
+        '200':
+          description: Password updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+
+  /admin/dashboard:
+    get:
+      summary: Fetch dashboard KPIs and order counts
+      tags: [Admin Dashboard]
+      security:
+        - cookieAuth: []
+      responses:
+        '200':
+          description: Dashboard summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminDashboardSummary'
+
+  /admin/orders:
+    get:
+      summary: List all orders with filters
+      tags: [Admin Orders]
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: perPage
+          in: query
+          schema:
+            type: integer
+            default: 20
+        - name: status
+          in: query
+          schema:
+            $ref: '#/components/schemas/OrderStatus'
+        - name: dateFrom
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: dateTo
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: governorate
+          in: query
+          schema:
+            type: string
+        - name: q
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Paginated orders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAdminOrders'
+
+  /admin/orders/{id}:
+    get:
+      summary: Get full order details and audit history
+      tags: [Admin Orders]
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminOrderDetail'
+
+  /admin/orders/{id}/status:
+    patch:
+      summary: Update order status
+      tags: [Admin Orders]
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  $ref: '#/components/schemas/OrderStatus'
+                note:
+                  type: string
+              required: [status]
+      responses:
+        '200':
+          description: Status updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminOrderDetail'
+        '400':
+          description: Invalid status transition
+
+  /admin/orders/export/csv:
+    get:
+      summary: Export orders as CSV (Admin only)
+      tags: [Admin Orders]
+      security:
+        - cookieAuth: []
+      responses:
+        '200':
+          description: CSV file download
+          content:
+            text/csv:
+              schema:
+                type: string
+                format: binary
+
+  /admin/products:
+    get:
+      summary: Admin products listing
+      tags: [Admin Products]
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: perPage
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: Paginated product management items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProducts'
+    post:
+      summary: Create a new product
+      tags: [Admin Products]
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProductInput'
+      responses:
+        '201':
+          description: Product created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+  /admin/products/{id}:
+    patch:
+      summary: Update a product
+      tags: [Admin Products]
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProductInput'
+      responses:
+        '200':
+          description: Product updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    delete:
+      summary: Delete a product
+      tags: [Admin Products]
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+
+  /admin/products/{id}/images:
+    post:
+      summary: Upload product images
+      tags: [Admin Products]
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        '201':
+          description: Images uploaded
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+
+  /admin/categories:
+    post:
+      summary: Create a category
+      tags: [Admin Categories]
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCategoryInput'
+      responses:
+        '201':
+          description: Category created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+
+  /admin/categories/{id}:
+    patch:
+      summary: Update a category
+      tags: [Admin Categories]
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCategoryInput'
+      responses:
+        '200':
+          description: Category updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+    delete:
+      summary: Delete a category
+      tags: [Admin Categories]
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Category deleted
+        '409':
+          description: Category not empty
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+
+  /admin/users:
+    get:
+      summary: List staff users (Admin only)
+      tags: [Admin Users]
+      security:
+        - cookieAuth: []
+      responses:
+        '200':
+          description: Staff list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      summary: Create an orders_manager user (Admin only)
+      tags: [Admin Users]
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserInput'
+      responses:
+        '201':
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+  /admin/users/{id}/disable:
+    patch:
+      summary: Disable a user account (Admin only)
+      tags: [Admin Users]
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User disabled
+
+components:
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: session_id
+
+  schemas:
+    OrderStatus:
+      type: string
+      enum: [new, processing, shipped, delivered, cancelled]
+
+    UserRole:
+      type: string
+      enum: [admin, orders_manager]
+
+    MoneyString:
+      type: string
+      pattern: '^\d+\.\d{2}$'
+      example: '380.00'
+
+    ApiError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        fieldErrors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+      required: [code, message]
+
+    PaginationMeta:
+      type: object
+      properties:
+        page:
+          type: integer
+        perPage:
+          type: integer
+        total:
+          type: integer
+        totalPages:
+          type: integer
+      required: [page, perPage, total, totalPages]
+
+    Compatibility:
+      type: object
+      properties:
+        modelId:
+          type: string
+        yearFrom:
+          type: integer
+        yearTo:
+          type: integer
+      required: [modelId, yearFrom, yearTo]
+
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        name:
+          type: string
+        nameEn:
+          type: string
+        sku:
+          type: string
+        partNumber:
+          type: string
+        categoryId:
+          type: string
+        price:
+          $ref: '#/components/schemas/MoneyString'
+        currency:
+          type: string
+          default: EGP
+        availability:
+          type: string
+          enum: [in_stock, out_of_stock, order_only]
+        stockQuantity:
+          type: integer
+          nullable: true
+        images:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        compatibility:
+          type: array
+          items:
+            $ref: '#/components/schemas/Compatibility'
+      required: [id, slug, name, nameEn, sku, categoryId, price, currency, availability, images, description]
+
+    PaginatedProducts:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+      required: [data, meta]
+
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        name:
+          type: string
+        icon:
+          type: string
+        description:
+          type: string
+        productCount:
+          type: integer
+      required: [id, slug, name, icon]
+
+    Model:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        nameAr:
+          type: string
+        years:
+          type: array
+          items:
+            type: integer
+        imageUrl:
+          type: string
+      required: [id, name, years]
+
+    CustomerInput:
+      type: object
+      properties:
+        name:
+          type: string
+        phone:
+          type: string
+          pattern: '^01[0125]\d{8}$'
+        governorate:
+          type: string
+        city:
+          type: string
+        address:
+          type: string
+        notes:
+          type: string
+      required: [name, phone, governorate, city, address]
+
+    OrderItemInput:
+      type: object
+      properties:
+        productId:
+          type: string
+        quantity:
+          type: integer
+          minimum: 1
+      required: [productId, quantity]
+
+    CreateOrderRequest:
+      type: object
+      properties:
+        customer:
+          $ref: '#/components/schemas/CustomerInput'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItemInput'
+          minItems: 1
+        honeypotField:
+          type: string
+      required: [customer, items]
+
+    OrderConfirmationItem:
+      type: object
+      properties:
+        productId:
+          type: string
+        productName:
+          type: string
+        price:
+          $ref: '#/components/schemas/MoneyString'
+        quantity:
+          type: integer
+        total:
+          $ref: '#/components/schemas/MoneyString'
+      required: [productId, productName, price, quantity, total]
+
+    OrderConfirmation:
+      type: object
+      properties:
+        orderNumber:
+          type: string
+        status:
+          $ref: '#/components/schemas/OrderStatus'
+        total:
+          $ref: '#/components/schemas/MoneyString'
+        subtotal:
+          $ref: '#/components/schemas/MoneyString'
+        shippingFee:
+          $ref: '#/components/schemas/MoneyString'
+        currency:
+          type: string
+          default: EGP
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderConfirmationItem'
+        customer:
+          $ref: '#/components/schemas/CustomerInput'
+        createdAt:
+          type: string
+          format: date-time
+      required: [orderNumber, status, total, subtotal, shippingFee, currency, items, customer, createdAt]
+
+    OrderLookupResult:
+      type: object
+      properties:
+        orderNumber:
+          type: string
+        status:
+          $ref: '#/components/schemas/OrderStatus'
+        createdAt:
+          type: string
+          format: date-time
+        statusUpdatedAt:
+          type: string
+          format: date-time
+        total:
+          $ref: '#/components/schemas/MoneyString'
+        itemsCount:
+          type: integer
+        governorate:
+          type: string
+      required: [orderNumber, status, createdAt, total, itemsCount, governorate]
+
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      required: [username, password]
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        role:
+          $ref: '#/components/schemas/UserRole'
+        disabled:
+          type: boolean
+      required: [id, username, name, role]
+
+    AuthSession:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+      required: [user]
+
+    ChangePasswordRequest:
+      type: object
+      properties:
+        currentPassword:
+          type: string
+        newPassword:
+          type: string
+          minLength: 8
+      required: [currentPassword, newPassword]
+
+    AdminDashboardSummary:
+      type: object
+      properties:
+        todayOrdersCount:
+          type: integer
+        todayOrdersTotal:
+          $ref: '#/components/schemas/MoneyString'
+        pendingOrdersCount:
+          type: integer
+        lowStockCount:
+          type: integer
+        statusCounts:
+          type: object
+          properties:
+            new:
+              type: integer
+            processing:
+              type: integer
+            shipped:
+              type: integer
+            delivered:
+              type: integer
+            cancelled:
+              type: integer
+          required: [new, processing, shipped, delivered, cancelled]
+      required: [todayOrdersCount, todayOrdersTotal, pendingOrdersCount, lowStockCount, statusCounts]
+
+    AdminOrderSummary:
+      type: object
+      properties:
+        id:
+          type: string
+        orderNumber:
+          type: string
+        customerName:
+          type: string
+        phone:
+          type: string
+        governorate:
+          type: string
+        status:
+          $ref: '#/components/schemas/OrderStatus'
+        total:
+          $ref: '#/components/schemas/MoneyString'
+        itemsCount:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+      required: [id, orderNumber, customerName, phone, governorate, status, total, itemsCount, createdAt]
+
+    PaginatedAdminOrders:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdminOrderSummary'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+      required: [data, meta]
+
+    AdminOrderItem:
+      type: object
+      properties:
+        productId:
+          type: string
+        sku:
+          type: string
+        productName:
+          type: string
+        price:
+          $ref: '#/components/schemas/MoneyString'
+        quantity:
+          type: integer
+        total:
+          $ref: '#/components/schemas/MoneyString'
+      required: [productId, sku, productName, price, quantity, total]
+
+    OrderStatusHistoryItem:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/OrderStatus'
+        changedAt:
+          type: string
+          format: date-time
+        changedBy:
+          type: string
+        note:
+          type: string
+      required: [status, changedAt, changedBy]
+
+    AdminOrderDetail:
+      type: object
+      properties:
+        id:
+          type: string
+        orderNumber:
+          type: string
+        status:
+          $ref: '#/components/schemas/OrderStatus'
+        customer:
+          $ref: '#/components/schemas/CustomerInput'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdminOrderItem'
+        subtotal:
+          $ref: '#/components/schemas/MoneyString'
+        shippingFee:
+          $ref: '#/components/schemas/MoneyString'
+        total:
+          $ref: '#/components/schemas/MoneyString'
+        internalNotes:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        history:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderStatusHistoryItem'
+      required: [id, orderNumber, status, customer, items, subtotal, shippingFee, total, createdAt, history]
+
+    CreateProductInput:
+      type: object
+      properties:
+        name:
+          type: string
+        nameEn:
+          type: string
+        sku:
+          type: string
+        partNumber:
+          type: string
+        categoryId:
+          type: string
+        price:
+          $ref: '#/components/schemas/MoneyString'
+        availability:
+          type: string
+          enum: [in_stock, out_of_stock, order_only]
+        stockQuantity:
+          type: integer
+          nullable: true
+        description:
+          type: string
+        compatibility:
+          type: array
+          items:
+            $ref: '#/components/schemas/Compatibility'
+        images:
+          type: array
+          items:
+            type: string
+      required: [name, nameEn, sku, categoryId, price, availability, description]
+
+    UpdateProductInput:
+      type: object
+      properties:
+        name:
+          type: string
+        nameEn:
+          type: string
+        sku:
+          type: string
+        partNumber:
+          type: string
+        categoryId:
+          type: string
+        price:
+          $ref: '#/components/schemas/MoneyString'
+        availability:
+          type: string
+          enum: [in_stock, out_of_stock, order_only]
+        stockQuantity:
+          type: integer
+          nullable: true
+        description:
+          type: string
+        compatibility:
+          type: array
+          items:
+            $ref: '#/components/schemas/Compatibility'
+        images:
+          type: array
+          items:
+            type: string
+
+    CreateCategoryInput:
+      type: object
+      properties:
+        name:
+          type: string
+        slug:
+          type: string
+        icon:
+          type: string
+        description:
+          type: string
+      required: [name, slug, icon]
+
+    UpdateCategoryInput:
+      type: object
+      properties:
+        name:
+          type: string
+        slug:
+          type: string
+        icon:
+          type: string
+        description:
+          type: string
+
+    CreateUserInput:
+      type: object
+      properties:
+        username:
+          type: string
+        name:
+          type: string
+        password:
+          type: string
+          minLength: 8
+        role:
+          $ref: '#/components/schemas/UserRole'
+      required: [username, name, password, role]

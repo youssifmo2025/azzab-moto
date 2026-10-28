@@ -8,11 +8,20 @@ if (!rootEl) {
   throw new Error('Root element #root not found')
 }
 
-createRoot(rootEl).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+async function prepareApp() {
+  if (import.meta.env.DEV && import.meta.env.VITE_DATA_SOURCE === 'api') {
+    const { enableMocking } = await import('./services/mock')
+    await enableMocking()
+  }
+}
+
+prepareApp().then(() => {
+  createRoot(rootEl).render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  )
+})
 
 // Register PWA service worker in production
 if (import.meta.env.PROD && typeof window !== 'undefined' && 'serviceWorker' in navigator) {
