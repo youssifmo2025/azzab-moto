@@ -87,6 +87,16 @@ export function Header() {
               </Link>
             )}
 
+            {/* Order Tracking (Business feature: ON) */}
+            {features.orderTracking && (
+              <Link
+                to="/track"
+                className="hidden text-sm font-medium text-heading transition hover:text-accent xl:inline-flex"
+              >
+                تتبع الطلب
+              </Link>
+            )}
+
             {/* Shopping Cart (Business Feature: ON) */}
             {features.cart && <CartIcon />}
 

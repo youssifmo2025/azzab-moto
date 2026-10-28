@@ -114,6 +114,11 @@ export function Footer() {
             <h3 className="font-heading text-sm font-bold text-heading">خدمة العملاء</h3>
             <ul className="mt-4 space-y-2.5 text-xs">
               <li>
+                <Link to="/track" className="transition hover:text-accent font-semibold text-accent">
+                  تتبع حالة الطلب
+                </Link>
+              </li>
+              <li>
                 <Link to="/about" className="transition hover:text-accent">
                   من نحن
                 </Link>

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { X, MessageCircle, ShoppingBag, Info, Phone, ShieldCheck, Home } from 'lucide-react'
+import { X, MessageCircle, ShoppingBag, Info, Phone, ShieldCheck, Home, Package } from 'lucide-react'
 import logoImg from '@/assets/logo.png'
 import { siteConfig } from '@/app/config/site'
 import { features } from '@/app/config/features'
@@ -134,6 +134,15 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   {itemCount}
                 </span>
               )}
+            </Link>
+          )}
+          {features.orderTracking && (
+            <Link
+              to="/track"
+              className="flex items-center gap-3 rounded-[10px] px-3 py-2.5 text-sm font-medium text-heading hover:bg-alt"
+            >
+              <Package className="h-4 w-4 text-secondary" aria-hidden="true" />
+              <span>تتبع الطلب</span>
             </Link>
           )}
           <Link

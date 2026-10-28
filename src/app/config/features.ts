@@ -36,7 +36,8 @@ export const features = {
   checkout: true,
   checkoutCod: true,
   /** Live order tracking by order ID */
-  orderTracking: false,
+  orderTracking: true,
+  orderLookup: true,
   /** Dedicated model & production year faceted filters */
   modelYearFilter: false,
   /** Advanced catalog filtering (price range, manufacturer, etc.) */

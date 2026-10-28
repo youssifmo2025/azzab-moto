@@ -18,6 +18,7 @@ const ReturnsPage = lazy(() => import('@/features/static-pages/pages/ReturnsPage
 const CartPage = lazy(() => import('@/features/cart/pages/CartPage'))
 const CheckoutPage = lazy(() => import('@/features/checkout/pages/CheckoutPage'))
 const OrderConfirmationPage = lazy(() => import('@/features/checkout/pages/OrderConfirmationPage'))
+const OrderTrackingPage = lazy(() => import('@/features/order-tracking/pages/OrderTrackingPage'))
 
 // ── Lazy-loaded admin page components (Isolated in Admin Chunk) ──────────────
 const AdminLayout = lazy(() => import('@/admin/components/AdminLayout'))
@@ -116,6 +117,10 @@ const router = createBrowserRouter([
       {
         path: 'order/confirmation',
         element: <Page element={<OrderConfirmationPage />} />,
+      },
+      {
+        path: 'track',
+        element: <Page element={<OrderTrackingPage />} />,
       },
       {
         path: '*',
