@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Outlet, NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useAdminAuth } from '../context/AdminAuthContext'
+import { removeStorage } from '@/shared/lib/storage'
 import {
   LayoutDashboard,
   ShoppingBag,
@@ -88,8 +89,8 @@ export default function AdminLayout() {
 
   const handleResetDemo = () => {
     if (typeof window !== 'undefined') {
-      localStorage.removeItem('am_demo_orders_v1')
-      localStorage.removeItem('am_demo_products_v1')
+      removeStorage('am_demo_orders_v1')
+      removeStorage('am_demo_products_v1')
       window.location.reload()
     }
   }
@@ -234,7 +235,7 @@ export default function AdminLayout() {
           <div className="bg-amber-50 border-b border-amber-200 px-4 py-2.5 text-xs flex flex-wrap items-center justify-between gap-2 text-amber-900">
             <div className="flex items-center gap-2">
               <span className="inline-block w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-              <span>نسخة تجريبية: البيانات محفوظة في هذا المتصفح فقط (localStorage).</span>
+              <span>نسخة تجريبية: البيانات محفوظة محلياً في هذا المتصفح فقط.</span>
             </div>
             <button
               type="button"

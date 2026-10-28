@@ -1,44 +1,45 @@
+import { z } from 'zod'
 import type { OrderRepository } from '../interfaces/order-repository.interface'
 import type { CreateOrderRequest, OrderConfirmation, OrderLookupResult } from '../api/schemas/order'
+import { readStorage, writeStorage } from '@/shared/lib/storage'
 import rawProducts from '@/data/products.json'
 
 const STORAGE_ORDERS_KEY = 'am_demo_orders_v1'
 
-interface StoredOrder {
-  orderNumber: string
-  status: 'new' | 'processing' | 'shipped' | 'delivered' | 'cancelled'
-  total: string
-  subtotal: string
-  shippingFee: string
-  currency: 'EGP'
-  items: Array<{
-    productId: string
-    productName: string
-    price: string
-    quantity: number
-    total: string
-  }>
-  customer: CreateOrderRequest['customer']
-  createdAt: string
-}
+const StoredOrderSchema = z.object({
+  orderNumber: z.string(),
+  status: z.enum(['new', 'processing', 'shipped', 'delivered', 'cancelled']),
+  total: z.string(),
+  subtotal: z.string(),
+  shippingFee: z.string(),
+  currency: z.literal('EGP'),
+  items: z.array(
+    z.object({
+      productId: z.string(),
+      productName: z.string(),
+      price: z.string(),
+      quantity: z.number(),
+      total: z.string(),
+    }),
+  ),
+  customer: z.object({
+    name: z.string(),
+    phone: z.string(),
+    governorate: z.string(),
+    address: z.string(),
+    notes: z.string().optional(),
+  }),
+  createdAt: z.string(),
+})
+
+type StoredOrder = z.infer<typeof StoredOrderSchema>
 
 function getStoredOrders(): StoredOrder[] {
-  if (typeof window === 'undefined') return []
-  try {
-    const raw = localStorage.getItem(STORAGE_ORDERS_KEY)
-    return raw ? JSON.parse(raw) : []
-  } catch {
-    return []
-  }
+  return readStorage<StoredOrder[]>(STORAGE_ORDERS_KEY, z.array(StoredOrderSchema), [])
 }
 
 function saveStoredOrders(orders: StoredOrder[]): void {
-  if (typeof window === 'undefined') return
-  try {
-    localStorage.setItem(STORAGE_ORDERS_KEY, JSON.stringify(orders))
-  } catch {
-    // Ignore storage quota errors in demo mode
-  }
+  writeStorage(STORAGE_ORDERS_KEY, orders)
 }
 
 export class JsonOrderRepository implements OrderRepository {

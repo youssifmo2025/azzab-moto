@@ -1,3 +1,5 @@
+import { z } from 'zod'
+import { readStorage, writeStorage, removeStorage } from '@/shared/lib/storage'
 import rawProducts from '@/data/products.json'
 import rawCategories from '@/data/categories.json'
 import rawModels from '@/data/models.json'
@@ -200,52 +202,25 @@ const DEMO_ORDERS_KEY = 'am_demo_orders_v1'
 const DEMO_PRODUCTS_KEY = 'am_demo_products_v1'
 
 export function loadDemoOrders(): MockOrder[] {
-  if (typeof window === 'undefined') return [...initialMockOrders]
-  try {
-    const raw = localStorage.getItem(DEMO_ORDERS_KEY)
-    if (raw) return JSON.parse(raw)
-  } catch {
-    // fallback
-  }
-  return [...initialMockOrders]
+  return readStorage<MockOrder[]>(DEMO_ORDERS_KEY, z.array(z.any()), [...initialMockOrders])
 }
 
 export function saveDemoOrders(ordersList: MockOrder[]): void {
-  if (typeof window === 'undefined') return
-  try {
-    localStorage.setItem(DEMO_ORDERS_KEY, JSON.stringify(ordersList))
-  } catch {
-    // ignore
-  }
+  writeStorage(DEMO_ORDERS_KEY, ordersList)
 }
 
 export function loadDemoProducts(): MockProduct[] {
-  if (typeof window === 'undefined') return [...initialMockProducts]
-  try {
-    const raw = localStorage.getItem(DEMO_PRODUCTS_KEY)
-    if (raw) return JSON.parse(raw)
-  } catch {
-    // fallback
-  }
-  return [...initialMockProducts]
+  return readStorage<MockProduct[]>(DEMO_PRODUCTS_KEY, z.array(z.any()), [...initialMockProducts])
 }
 
 export function saveDemoProducts(productsList: MockProduct[]): void {
-  if (typeof window === 'undefined') return
-  try {
-    localStorage.setItem(DEMO_PRODUCTS_KEY, JSON.stringify(productsList))
-  } catch {
-    // ignore
-  }
+  writeStorage(DEMO_PRODUCTS_KEY, productsList)
 }
 
 export function resetDemoData(): void {
-  if (typeof window === 'undefined') return
-  try {
-    localStorage.removeItem(DEMO_ORDERS_KEY)
-    localStorage.removeItem(DEMO_PRODUCTS_KEY)
+  removeStorage(DEMO_ORDERS_KEY)
+  removeStorage(DEMO_PRODUCTS_KEY)
+  if (typeof window !== 'undefined') {
     window.location.reload()
-  } catch {
-    // ignore
   }
 }
