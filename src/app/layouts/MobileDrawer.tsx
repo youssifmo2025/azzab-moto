@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom'
 import { X, MessageCircle, ShoppingBag, Info, Phone, ShieldCheck, Home } from 'lucide-react'
 import logoImg from '@/assets/logo.png'
 import { siteConfig } from '@/app/config/site'
+import { features } from '@/app/config/features'
+import { useCart } from '@/features/cart/context/CartContext'
 import { buildWhatsAppUrl } from '@/shared/lib/whatsapp'
 import { SearchBar } from './Header/SearchBar'
 
@@ -13,6 +15,7 @@ interface MobileDrawerProps {
 
 export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const location = useLocation()
+  const { itemCount } = useCart()
   const drawerRef = useRef<HTMLDivElement>(null)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
 
@@ -117,6 +120,22 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             <ShoppingBag className="h-4 w-4 text-secondary" aria-hidden="true" />
             <span>كتالوج قطع الغيار</span>
           </Link>
+          {features.cart && (
+            <Link
+              to="/cart"
+              className="flex items-center justify-between rounded-[10px] px-3 py-2.5 text-sm font-medium text-heading hover:bg-alt"
+            >
+              <div className="flex items-center gap-3">
+                <ShoppingBag className="h-4 w-4 text-accent" aria-hidden="true" />
+                <span>سلة المشتريات</span>
+              </div>
+              {itemCount > 0 && (
+                <span className="rounded-full bg-accent px-2 py-0.5 text-xs font-bold text-white font-numeric tabular">
+                  {itemCount}
+                </span>
+              )}
+            </Link>
+          )}
           <Link
             to="/about"
             className="flex items-center gap-3 rounded-[10px] px-3 py-2.5 text-sm font-medium text-heading hover:bg-alt"

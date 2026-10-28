@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import {
@@ -9,8 +9,13 @@ import {
   Truck,
   ShieldCheck,
   CreditCard,
+  ShoppingBag,
+  Plus,
+  Minus,
 } from 'lucide-react'
 import { siteConfig } from '@/app/config/site'
+import { features } from '@/app/config/features'
+import { useCart } from '@/features/cart/context/CartContext'
 import { useProduct } from '../hooks/useProduct'
 import { useCategories } from '@/features/catalog/hooks/useCategories'
 import { useProducts } from '@/features/catalog/hooks/useProducts'
@@ -27,6 +32,8 @@ export default function ProductPage() {
   const { product, loading } = useProduct(slug)
   const { categories } = useCategories()
   const { products: allProducts } = useProducts()
+  const { addItem } = useCart()
+  const [quantity, setQuantity] = useState(1)
 
   const category = useMemo(() => {
     if (!product) return null
@@ -216,20 +223,58 @@ export default function ProductPage() {
               </div>
             </div>
 
-            {/* Desktop WhatsApp Order CTA Button */}
-            <div>
-              <a
-                href={whatsappOrderUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-[10px] bg-accent py-3.5 px-6 font-heading text-base font-bold text-white shadow-xs transition duration-150 hover:bg-accent-hover"
-              >
-                <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                <span>اطلب عبر واتساب الآن</span>
-              </a>
-              <p className="mt-2 text-center text-xs text-secondary">
-                سيتم فتح محادثة واتساب مباشرة متضمنة كود القطعة والسعر ورابط الصفحة.
-              </p>
+            {/* Order Action Buttons */}
+            <div className="space-y-3">
+              {features.cart && (
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center rounded-[10px] border border-border bg-base p-1">
+                    <button
+                      type="button"
+                      onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                      className="p-2 text-secondary hover:text-heading cursor-pointer"
+                      aria-label="تقليل الكمية"
+                    >
+                      <Minus className="h-4 w-4" />
+                    </button>
+                    <span className="w-8 text-center font-bold font-numeric tabular text-sm">
+                      {quantity}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setQuantity((q) => q + 1)}
+                      className="p-2 text-secondary hover:text-heading cursor-pointer"
+                      aria-label="زيادة الكمية"
+                    >
+                      <Plus className="h-4 w-4" />
+                    </button>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => addItem(product, quantity)}
+                    className="flex-1 inline-flex items-center justify-center gap-2 rounded-[10px] bg-accent py-3.5 px-6 font-heading text-base font-bold text-white shadow-xs transition duration-150 hover:bg-accent-hover cursor-pointer"
+                  >
+                    <ShoppingBag className="h-5 w-5" aria-hidden="true" />
+                    <span>أضف إلى السلة</span>
+                  </button>
+                </div>
+              )}
+
+              {features.whatsappOrder && (
+                <a
+                  href={whatsappOrderUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex w-full items-center justify-center gap-2 rounded-[10px] font-heading font-semibold shadow-xs transition duration-150 ${
+                    features.cart
+                      ? 'border border-border bg-base py-2.5 px-4 text-xs text-secondary hover:bg-neutral-light hover:text-heading'
+                      : 'bg-accent py-3.5 px-6 text-base text-white hover:bg-accent-hover font-bold'
+                  }`}
+                >
+                  <MessageCircle className="h-4 w-4 text-accent" aria-hidden="true" />
+                  <span>اطلب عبر واتساب</span>
+                </a>
+              )}
             </div>
 
             {/* Quick Guarantees Strip */}
@@ -311,15 +356,29 @@ export default function ProductPage() {
             {formatPrice(product.price)}
           </span>
         </div>
-        <a
-          href={whatsappOrderUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-[10px] bg-accent px-5 py-2.5 text-xs font-bold text-white shadow-xs transition hover:bg-accent-hover"
-        >
-          <MessageCircle className="h-4 w-4" aria-hidden="true" />
-          <span>طلب عبر واتساب</span>
-        </a>
+        <div className="flex items-center gap-2">
+          {features.cart && (
+            <button
+              type="button"
+              onClick={() => addItem(product, 1)}
+              className="inline-flex items-center gap-1.5 rounded-[10px] bg-accent px-4 py-2 text-xs font-bold text-white shadow-xs transition hover:bg-accent-hover cursor-pointer"
+            >
+              <ShoppingBag className="h-4 w-4" aria-hidden="true" />
+              <span>أضف للسلة</span>
+            </button>
+          )}
+          {features.whatsappOrder && (
+            <a
+              href={whatsappOrderUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-[10px] border border-border bg-base px-3 py-2 text-xs font-semibold text-heading shadow-xs transition hover:bg-neutral-light"
+              aria-label="طلب عبر واتساب"
+            >
+              <MessageCircle className="h-4 w-4 text-accent" aria-hidden="true" />
+            </a>
+          )}
+        </div>
       </div>
     </>
   )

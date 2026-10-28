@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MessageCircle, CheckCircle2, AlertCircle } from 'lucide-react'
+import { MessageCircle, CheckCircle2, AlertCircle, ShoppingBag } from 'lucide-react'
 import type { Product } from '@/services/schemas/product'
 import { formatPrice } from '@/shared/utils/formatPrice'
 import { buildWhatsAppUrl, buildOrderMessage } from '@/shared/lib/whatsapp'
 import { useModels } from '@/features/vehicle-selector/hooks/useModels'
+import { features } from '@/app/config/features'
+import { useCart } from '@/features/cart/context/CartContext'
 
 interface ProductCardProps {
   product: Product
@@ -13,6 +15,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product, priority = false }: ProductCardProps) {
   const { models } = useModels()
+  const { addItem } = useCart()
   const [imgError, setImgError] = useState(false)
 
   // Derive model names for compatibility display
@@ -121,17 +124,32 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           </span>
         </div>
 
-        {/* Outlined "اطلب" button that fills on hover */}
-        <a
-          href={whatsappOrderUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`طلب ${product.name} عبر واتساب`}
-          className="inline-flex items-center gap-1.5 rounded-[8px] border border-accent bg-transparent px-3 py-1.5 text-xs font-semibold text-accent transition duration-150 hover:bg-accent hover:text-white"
-        >
-          <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
-          <span>اطلب</span>
-        </a>
+        {/* Order or Add to Cart CTA */}
+        {features.cart ? (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault()
+              addItem(product, 1)
+            }}
+            aria-label={`إضافة ${product.name} إلى السلة`}
+            className="inline-flex items-center gap-1.5 rounded-[8px] bg-accent px-3 py-1.5 text-xs font-semibold text-white shadow-xs transition duration-150 hover:bg-accent-hover cursor-pointer"
+          >
+            <ShoppingBag className="h-3.5 w-3.5" aria-hidden="true" />
+            <span>أضف للسلة</span>
+          </button>
+        ) : (
+          <a
+            href={whatsappOrderUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`طلب ${product.name} عبر واتساب`}
+            className="inline-flex items-center gap-1.5 rounded-[8px] border border-accent bg-transparent px-3 py-1.5 text-xs font-semibold text-accent transition duration-150 hover:bg-accent hover:text-white"
+          >
+            <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
+            <span>اطلب</span>
+          </a>
+        )}
       </div>
     </article>
   )

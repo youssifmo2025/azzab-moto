@@ -8,6 +8,7 @@ import { buildWhatsAppUrl } from '@/shared/lib/whatsapp'
 import { AnnouncementStrip } from './AnnouncementStrip'
 import { SearchBar } from './SearchBar'
 import { MobileDrawer } from '../MobileDrawer'
+import { CartIcon } from '@/features/cart/components/CartIcon'
 
 export function Header() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -85,6 +86,9 @@ export function Header() {
                 كتالوج القطع
               </Link>
             )}
+
+            {/* Shopping Cart (Business Feature: ON) */}
+            {features.cart && <CartIcon />}
 
             {/* Direct WhatsApp Action (Starter feature: ON) */}
             {features.whatsappOrder && (

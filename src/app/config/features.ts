@@ -31,9 +31,10 @@ export const features = {
   /** User accounts, authentication, and profiles */
   accounts: false,
   /** Shopping cart & persistent state */
-  cart: false,
+  cart: true,
   /** Cash-on-delivery (COD) multi-step checkout */
-  checkout: false,
+  checkout: true,
+  checkoutCod: true,
   /** Live order tracking by order ID */
   orderTracking: false,
   /** Dedicated model & production year faceted filters */

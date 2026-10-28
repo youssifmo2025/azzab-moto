@@ -84,7 +84,29 @@ export const STORAGE_KEYS = {
   PWA_DISMISSED: buildStorageKey('pwa_dismissed_v1'),
   LAST_SEARCH: buildStorageKey('last_search_v1'),
   VEHICLE_FILTER: buildStorageKey('vehicle_filter_v1'),
+  CART: buildStorageKey('cart_v1'),
+  LAST_ORDER: buildStorageKey('last_order_v1'),
 } as const
+
+export const CartItemStorageSchema = z.object({
+  productId: z.string(),
+  quantity: z.number().int().positive(),
+  savedPrice: z.string(),
+})
+
+export const CartStorageSchema = z.object({
+  items: z.array(CartItemStorageSchema),
+})
+
+export type CartItemStorage = z.infer<typeof CartItemStorageSchema>
+export type CartStorage = z.infer<typeof CartStorageSchema>
+
+export const LastOrderStorageSchema = z.object({
+  orderNumber: z.string(),
+  createdAt: z.string(),
+})
+
+export type LastOrderStorage = z.infer<typeof LastOrderStorageSchema>
 
 export const VehicleFilterStorageSchema = z.object({
   modelId: z.string().optional(),
@@ -127,5 +149,18 @@ export const storage = {
     set: (filter: VehicleFilterStorage): boolean =>
       writeStorage(STORAGE_KEYS.VEHICLE_FILTER, filter),
     clear: (): boolean => removeStorage(STORAGE_KEYS.VEHICLE_FILTER),
+  },
+
+  cart: {
+    get: (): CartStorage => readStorage(STORAGE_KEYS.CART, CartStorageSchema, { items: [] }),
+    set: (cart: CartStorage): boolean => writeStorage(STORAGE_KEYS.CART, cart),
+    clear: (): boolean => removeStorage(STORAGE_KEYS.CART),
+  },
+
+  lastOrder: {
+    get: (): LastOrderStorage | null =>
+      readStorage(STORAGE_KEYS.LAST_ORDER, LastOrderStorageSchema.nullable(), null),
+    set: (order: LastOrderStorage): boolean => writeStorage(STORAGE_KEYS.LAST_ORDER, order),
+    clear: (): boolean => removeStorage(STORAGE_KEYS.LAST_ORDER),
   },
 }
