@@ -1,0 +1,27 @@
+{
+  "name": "عزاب موتو — قطع غيار TVS الأصلية",
+  "short_name": "عزاب موتو",
+  "description": "متجر قطع غيار دراجات وموتوسيكلات TVS الأصلية في مصر — الدفع عند الاستلام وشحن لجميع المحافظات",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "ar",
+  "background_color": "#FFFDF9",
+  "theme_color": "#FF8200",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

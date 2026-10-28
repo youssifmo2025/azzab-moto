@@ -1,0 +1,58 @@
+[
+  {
+    "id": "cat-brakes",
+    "slug": "brakes",
+    "name": "فرامل",
+    "icon": "Disc",
+    "description": "تيل فرامل، ديسكات، وخراطيم باكم أصلية لدراجات TVS"
+  },
+  {
+    "id": "cat-filters",
+    "slug": "filters",
+    "name": "فلاتر",
+    "icon": "Filter",
+    "description": "فلاتر زيت وهواء وبنزين أصلية لحماية المحرك"
+  },
+  {
+    "id": "cat-electrical",
+    "slug": "electrical",
+    "name": "كهرباء",
+    "icon": "Zap",
+    "description": "بوجيهات، ملفات شحن، بوبينات، ولمبات أصلية"
+  },
+  {
+    "id": "cat-batteries",
+    "slug": "batteries",
+    "name": "بطاريات",
+    "icon": "BatteryCharging",
+    "description": "بطاريات جافة وجيل مخصصة للموتوسيكلات والاسكوتر"
+  },
+  {
+    "id": "cat-tires",
+    "slug": "tires",
+    "name": "إطارات",
+    "icon": "CircleDot",
+    "description": "إطارات أمامية وخلفية تيوبلس بمقاسات TVS الرسمية"
+  },
+  {
+    "id": "cat-oils",
+    "slug": "oils",
+    "name": "زيوت وشحومات",
+    "icon": "Droplet",
+    "description": "زيوت تخليقية وشبه تخليقية TRU4 المعتمدة من TVS"
+  },
+  {
+    "id": "cat-engine",
+    "slug": "engine",
+    "name": "موتور ومحرك",
+    "icon": "Cog",
+    "description": "بساتم، شمبر، صبابات، وسلندرات أصلية"
+  },
+  {
+    "id": "cat-accessories",
+    "slug": "accessories",
+    "name": "إكسسوارات وحماية",
+    "icon": "ShieldCheck",
+    "description": "كفرات حماية المحرك، حوامل هواتف، ومرايات"
+  }
+]

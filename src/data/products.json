@@ -1,0 +1,429 @@
+[
+  {
+    "id": "prod-001",
+    "slug": "front-brake-pads-apache-160-200",
+    "name": "تيل فرامل أمامي أصلي TVS أباتشي",
+    "nameEn": "OEM Front Brake Pads TVS Apache",
+    "sku": "AZB-BRK-001",
+    "partNumber": "N9111330",
+    "categoryId": "cat-brakes",
+    "price": 380,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-brake-pad.webp"],
+    "description": "تيل فرامل أمامي عالي الأداء معتمد من مصنع TVS الأصلي. يوفر قوة كبح ممتازة وعمراً افتراضياً طويلاً في ظروف التشغيل الشاقة.",
+    "compatibility": [
+      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
+      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "prod-002",
+    "slug": "rear-brake-shoe-hlx-150",
+    "name": "تيل فرامل خلفي درام TVS HLX 150",
+    "nameEn": "OEM Rear Brake Shoe TVS HLX 150",
+    "sku": "AZB-BRK-002",
+    "partNumber": "K6110190",
+    "categoryId": "cat-brakes",
+    "price": 260,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-brake-shoe.webp"],
+    "description": "تيل فرامل خلفي أصلي خالي من الأسبستوس، يضمن استجابة فورية بدون صفير أو تآكل مفرط للطنبورة الخلفية.",
+    "compatibility": [
+      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 }
+    ]
+  },
+  {
+    "id": "prod-003",
+    "slug": "front-brake-disc-rotor-apache-200",
+    "name": "ديسك فرامل أمامي مهوّى أباتشي 200",
+    "nameEn": "Front Brake Disc Rotor Apache 200",
+    "sku": "AZB-BRK-003",
+    "partNumber": "N9112940",
+    "categoryId": "cat-brakes",
+    "price": 950,
+    "currency": "EGP",
+    "availability": "order_only",
+    "images": ["/images/products/placeholder-brake-disc.webp"],
+    "description": "ديسك فرامل من الفولاذ المعالج حرارياً بفتحات تهوية وتبريد سريعة لمنع سخونة الفرامل أثناء السرعات العالية.",
+    "compatibility": [
+      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-apache-rr-310", "yearFrom": 2020, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "prod-004",
+    "slug": "oem-oil-filter-hlx-apache",
+    "name": "فلتر زيت أصلي TVS TRU4",
+    "nameEn": "OEM Oil Filter TVS TRU4",
+    "sku": "AZB-FLT-001",
+    "partNumber": "M1080370",
+    "categoryId": "cat-filters",
+    "price": 120,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-oil-filter.webp"],
+    "description": "فلتر زيت ورقي ذو ألياف دقيقة عالية الكثافة، يحجز الشوائب المعدنية الدقيقة ويحافظ على ضغط زيت مستقر في المحرك.",
+    "compatibility": [
+      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
+      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "prod-005",
+    "slug": "air-filter-element-apache-160",
+    "name": "عنصر فلتر هواء أباتشي 160 4V",
+    "nameEn": "Air Filter Element Apache 160 4V",
+    "sku": "AZB-FLT-002",
+    "partNumber": "N9041670",
+    "categoryId": "cat-filters",
+    "price": 220,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-air-filter.webp"],
+    "description": "فلتر هواء ورقي أصلي يوفر تدفق هواء نقي مع ترشيح فائق للغبار والأتربة لحماية غرفة الاحتراق.",
+    "compatibility": [{ "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 }]
+  },
+  {
+    "id": "prod-006",
+    "slug": "in-line-fuel-filter-universal-tvs",
+    "name": "فلتر بنزين داخلي أصلي TVS",
+    "nameEn": "In-line OEM Fuel Filter TVS",
+    "sku": "AZB-FLT-003",
+    "partNumber": "K3080050",
+    "categoryId": "cat-filters",
+    "price": 95,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-fuel-filter.webp"],
+    "description": "فلتر بنزين مدمج لحماية رشاش الوقود أو الكربراتير من شوائب خزانات الوقود والصدأ.",
+    "compatibility": [
+      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-jupiter-110", "yearFrom": 2017, "yearTo": 2024 },
+      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 }
+    ]
+  },
+  {
+    "id": "prod-007",
+    "slug": "spark-plug-bosch-ur4kc-tvs",
+    "name": "بوجيه أصلي TVS Bosch UR4KC",
+    "nameEn": "OEM Spark Plug TVS Bosch UR4KC",
+    "sku": "AZB-ELC-001",
+    "partNumber": "M1060010",
+    "categoryId": "cat-electrical",
+    "price": 140,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-spark-plug.webp"],
+    "description": "شمعة إشعال أصلية معتمدة من TVS مصنعة بواسطة بوش، تضمن إشعالاً قوياً واستهلاكاً مثالياً للبنزين.",
+    "compatibility": [
+      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 },
+      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 }
+    ]
+  },
+  {
+    "id": "prod-008",
+    "slug": "stator-coil-dynamo-hlx-150",
+    "name": "ملف كهرباء (دينامو) كامل TVS HLX 150",
+    "nameEn": "Stator Coil Assembly TVS HLX 150",
+    "sku": "AZB-ELC-002",
+    "partNumber": "K6160120",
+    "categoryId": "cat-electrical",
+    "price": 850,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-stator.webp"],
+    "description": "ملف كهرباء نحاسي معزول بالكامل لتحمل درجات الحرارة المرتفعة، يعطي تيار شحن قوي ومستقر للبطارية والأنوار.",
+    "compatibility": [{ "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 }]
+  },
+  {
+    "id": "prod-009",
+    "slug": "cdi-digital-ignition-unit-apache-160",
+    "name": "وحدة إشعال إلكتروني CDI رقمية أباتشي",
+    "nameEn": "Digital CDI Ignition Unit Apache 160",
+    "sku": "AZB-ELC-003",
+    "partNumber": "N9060410",
+    "categoryId": "cat-electrical",
+    "price": 720,
+    "currency": "EGP",
+    "availability": "order_only",
+    "images": ["/images/products/placeholder-cdi.webp"],
+    "description": "عقل الإشعال الإلكتروني الرقمي الأصلي المبرمج لمنحنى تسارع مثالي وعزم محرك سلس.",
+    "compatibility": [{ "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 }]
+  },
+  {
+    "id": "prod-010",
+    "slug": "dry-battery-12v-5ah-hlx",
+    "name": "بطارية جافة TVS 12V 5Ah أصلية",
+    "nameEn": "OEM Dry Battery 12V 5Ah TVS",
+    "sku": "AZB-BAT-001",
+    "partNumber": "K3160240",
+    "categoryId": "cat-batteries",
+    "price": 820,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-battery-5ah.webp"],
+    "description": "بطارية موتوسيكل جافة صيانة مجانية، تيار تدوير مارش عالي ومقاومة ممتازة للاهتزازات.",
+    "compatibility": [
+      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 }
+    ]
+  },
+  {
+    "id": "prod-011",
+    "slug": "gel-battery-12v-9ah-apache-200",
+    "name": "بطارية جيل 12V 9Ah أباتشي 200 عالية القدرة",
+    "nameEn": "High Capacity Gel Battery 12V 9Ah",
+    "sku": "AZB-BAT-002",
+    "partNumber": "N9160530",
+    "categoryId": "cat-batteries",
+    "price": 1250,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-battery-9ah.webp"],
+    "description": "بطارية جيل متطورة بتقنية AGM توفر أداءً موثوقاً لنظام الحقن الإلكتروني والشاشة الرقمية والمصابيح الليد.",
+    "compatibility": [
+      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-apache-rr-310", "yearFrom": 2020, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "prod-012",
+    "slug": "scooter-battery-12v-4ah-jupiter-ntorq",
+    "name": "بطارية اسكوتر TVS 12V 4Ah جوبيتر وإن تورك",
+    "nameEn": "Scooter Battery 12V 4Ah TVS",
+    "sku": "AZB-BAT-003",
+    "partNumber": "G5160020",
+    "categoryId": "cat-batteries",
+    "price": 750,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-battery-scooter.webp"],
+    "description": "بطارية جافة بحجم مدمج مخصصة لسكوتر TVS مع تيار مارش سريع واستجابة فورية.",
+    "compatibility": [
+      { "modelId": "model-jupiter-110", "yearFrom": 2017, "yearTo": 2024 },
+      { "modelId": "model-ntorq-125", "yearFrom": 2019, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "prod-013",
+    "slug": "front-tire-90-90-17-tubeless",
+    "name": "إطار أمامي تيوبلس مقاس 90/90-17 TVS Eurogrip",
+    "nameEn": "TVS Eurogrip Front Tire 90/90-17",
+    "sku": "AZB-TIR-001",
+    "partNumber": "N9112100",
+    "categoryId": "cat-tires",
+    "price": 1450,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-tire-front.webp"],
+    "description": "كاوتش أمامي أصلي بنقشة توجيه دقيقة تضمن تماسكاً ممتازاً على الطرق الجافة والمبتلة في مصر.",
+    "compatibility": [
+      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
+      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "prod-014",
+    "slug": "rear-tire-130-70-17-tubeless-apache",
+    "name": "إطار خلفي عريض مقاس 130/70-17 تيوبلس",
+    "nameEn": "Rear Wide Tire 130/70-17 Tubeless",
+    "sku": "AZB-TIR-002",
+    "partNumber": "N9112110",
+    "categoryId": "cat-tires",
+    "price": 2100,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-tire-rear.webp"],
+    "description": "إطار خلفي عريض بمادة مطاطية مركبة تعطي ثباتاً فائقاً على المنعطفات وتتحمل درجات حرارة الإسفلت المرتفعة.",
+    "compatibility": [
+      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
+      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "prod-015",
+    "slug": "heavy-duty-rear-tire-300-17-hlx-150",
+    "name": "إطار خلفي خشن حمولة ثقيلة 3.00-17 TVS HLX",
+    "nameEn": "Heavy Duty Rear Tire 3.00-17 HLX",
+    "sku": "AZB-TIR-003",
+    "partNumber": "K6110820",
+    "categoryId": "cat-tires",
+    "price": 1150,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-tire-heavy.webp"],
+    "description": "إطار مصمم خصيصاً لأعمال الشحن والتحميل والعمل الشاق ومقاومة التمزق والثقوب في شوارع المحافظات.",
+    "compatibility": [
+      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 }
+    ]
+  },
+  {
+    "id": "prod-016",
+    "slug": "engine-oil-tvs-tru4-premium-10w30-1l",
+    "name": "زيت محرك أصلي TVS TRU4 Premium 10W-30 (1 لتر)",
+    "nameEn": "OEM Engine Oil TVS TRU4 10W-30 1L",
+    "sku": "AZB-OIL-001",
+    "partNumber": "OIL-TRU4-1L",
+    "categoryId": "cat-oils",
+    "price": 240,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-oil-bottle.webp"],
+    "description": "زيت محرك 4T معتمد رسمياً من شركة TVS بمواصفة JASO MA2 لحماية الكلتش وتقليل الاحتكاك وحرارة المحرك.",
+    "compatibility": [
+      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
+      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 },
+      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 }
+    ]
+  },
+  {
+    "id": "prod-017",
+    "slug": "fully-synthetic-oil-10w40-racing-1l",
+    "name": "زيت تخليقي بالكامل TVS TRU4 Fully Synthetic 10W-40",
+    "nameEn": "Fully Synthetic Engine Oil 10W-40 1L",
+    "sku": "AZB-OIL-002",
+    "partNumber": "OIL-SYN-10W40",
+    "categoryId": "cat-oils",
+    "price": 420,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-oil-synthetic.webp"],
+    "description": "زيت سباقات تخليقي 100% مخصص لمحركات أباتشي ذات الأداء العالي ومحركات التبريد بالزيت والمياه.",
+    "compatibility": [
+      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-apache-rr-310", "yearFrom": 2020, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "prod-018",
+    "slug": "high-temp-chain-lube-spray-400ml",
+    "name": "اسبراي تزييت جنزير عالي الالتصاق 400 مل",
+    "nameEn": "High Temp Chain Lube Spray 400ml",
+    "sku": "AZB-OIL-003",
+    "partNumber": "LUBE-CHN-400",
+    "categoryId": "cat-oils",
+    "price": 180,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-chain-lube.webp"],
+    "description": "شحم جنزير شفاف يخترق الحلقات ويحمي من الصدأ وتطاير الشحم أثناء القيادة السريعة.",
+    "compatibility": [
+      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
+      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-apache-rr-310", "yearFrom": 2020, "yearTo": 2024 },
+      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "prod-019",
+    "slug": "piston-kit-standard-hlx-150",
+    "name": "طقم بستم وشمبر قياسي ستاندرد TVS HLX 150",
+    "nameEn": "OEM Piston & Rings Set STD HLX 150",
+    "sku": "AZB-ENG-001",
+    "partNumber": "K6010040",
+    "categoryId": "cat-engine",
+    "price": 680,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-piston-kit.webp"],
+    "description": "طقم بستم أصلي مع الشنابر والتيلة والصباع، مصنع من سبائك الألومنيوم المقاومة للحرارة والضغط العالي.",
+    "compatibility": [{ "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 }]
+  },
+  {
+    "id": "prod-020",
+    "slug": "cylinder-head-gasket-apache-160",
+    "name": "جوان وش سلندر معدني أصلي أباتشي 160",
+    "nameEn": "OEM Cylinder Head Metal Gasket Apache 160",
+    "sku": "AZB-ENG-002",
+    "partNumber": "M7011370",
+    "categoryId": "cat-engine",
+    "price": 190,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-head-gasket.webp"],
+    "description": "جوان سلندر معدني متعدد الطبقات لمنع تسريب الضغط وزيت المحرك تحت أقسى ظروف التشغيل.",
+    "compatibility": [{ "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 }]
+  },
+  {
+    "id": "prod-021",
+    "slug": "cam-timing-chain-kit-hlx-150",
+    "name": "سير كاتينة (جنزير تاكيهات) أصلي TVS",
+    "nameEn": "Camshaft Timing Chain Kit HLX 150",
+    "sku": "AZB-ENG-003",
+    "partNumber": "K3010100",
+    "categoryId": "cat-engine",
+    "price": 340,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-timing-chain.webp"],
+    "description": "جنزير كاتينة صامت عالي الصلابة يضمن توافق دوران عمود الكامات والكرنك بدون ارتخاء.",
+    "compatibility": [
+      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "prod-022",
+    "slug": "clutch-plates-kit-apache-200",
+    "name": "طقم ورق دبرياج أصلي كامل أباتشي 200",
+    "nameEn": "Complete Clutch Friction Plates Kit Apache 200",
+    "sku": "AZB-ENG-004",
+    "partNumber": "N9070140",
+    "categoryId": "cat-engine",
+    "price": 760,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-clutch-plates.webp"],
+    "description": "طقم ديسك وورق دبرياج فايبر أصلي لنقل العزم الكامل ومنع تفويت الكلتش تحت الأحمال.",
+    "compatibility": [{ "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 }]
+  },
+  {
+    "id": "prod-023",
+    "slug": "engine-crash-guard-hlx-150",
+    "name": "كفر حماية المحرك (أكصدام حديد) TVS HLX",
+    "nameEn": "Heavy Duty Engine Crash Guard HLX 150",
+    "sku": "AZB-ACC-001",
+    "partNumber": "ACC-CG-HLX",
+    "categoryId": "cat-accessories",
+    "price": 550,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-crash-guard.webp"],
+    "description": "أكصدام حديد صلب مطلي إلكتروستاتيك لحماية جسم الموتور وأرجل السائق عند السقوط.",
+    "compatibility": [{ "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 }]
+  },
+  {
+    "id": "prod-024",
+    "slug": "anti-vibration-phone-mount-aluminum",
+    "name": "حامل موبايل ألومنيوم ممتص للاهتزاز للمقود",
+    "nameEn": "Anti-Vibration Aluminum Handlebar Phone Mount",
+    "sku": "AZB-ACC-002",
+    "partNumber": "ACC-PH-ALU",
+    "categoryId": "cat-accessories",
+    "price": 390,
+    "currency": "EGP",
+    "availability": "in_stock",
+    "images": ["/images/products/placeholder-phone-mount.webp"],
+    "description": "حامل هاتف معدني فائق الثبات بقطع سيليكون ممتصة للاهتزاز لحماية حساسات كاميرا الهاتف.",
+    "compatibility": [
+      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
+      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
+      { "modelId": "model-apache-rr-310", "yearFrom": 2020, "yearTo": 2024 },
+      { "modelId": "model-jupiter-110", "yearFrom": 2017, "yearTo": 2024 },
+      { "modelId": "model-ntorq-125", "yearFrom": 2019, "yearTo": 2024 },
+      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 },
+      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 }
+    ]
+  }
+]

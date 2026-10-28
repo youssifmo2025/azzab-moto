@@ -1,0 +1,58 @@
+[
+  {
+    "id": "model-hlx-150",
+    "name": "TVS HLX 150",
+    "nameAr": "تي في إس إتش إل إكس 150",
+    "years": [2018, 2019, 2020, 2021, 2022, 2023, 2024],
+    "imageUrl": "/images/models/hlx-150.webp"
+  },
+  {
+    "id": "model-apache-160-4v",
+    "name": "TVS Apache RTR 160 4V",
+    "nameAr": "أباتشي 160 4V",
+    "years": [2019, 2020, 2021, 2022, 2023, 2024],
+    "imageUrl": "/images/models/apache-160-4v.webp"
+  },
+  {
+    "id": "model-apache-200-4v",
+    "name": "TVS Apache RTR 200 4V",
+    "nameAr": "أباتشي 200 4V",
+    "years": [2018, 2019, 2020, 2021, 2022, 2023, 2024],
+    "imageUrl": "/images/models/apache-200-4v.webp"
+  },
+  {
+    "id": "model-apache-rr-310",
+    "name": "TVS Apache RR 310",
+    "nameAr": "أباتشي آر آر 310",
+    "years": [2020, 2021, 2022, 2023, 2024],
+    "imageUrl": "/images/models/apache-rr-310.webp"
+  },
+  {
+    "id": "model-jupiter-110",
+    "name": "TVS Jupiter 110",
+    "nameAr": "جوبيتر 110",
+    "years": [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
+    "imageUrl": "/images/models/jupiter-110.webp"
+  },
+  {
+    "id": "model-ntorq-125",
+    "name": "TVS NTorq 125",
+    "nameAr": "إن تورك 125",
+    "years": [2019, 2020, 2021, 2022, 2023, 2024],
+    "imageUrl": "/images/models/ntorq-125.webp"
+  },
+  {
+    "id": "model-star-city-plus",
+    "name": "TVS Star City Plus",
+    "nameAr": "ستار سيتي بلس",
+    "years": [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023],
+    "imageUrl": "/images/models/star-city-plus.webp"
+  },
+  {
+    "id": "model-raider-125",
+    "name": "TVS Raider 125",
+    "nameAr": "رايدر 125",
+    "years": [2021, 2022, 2023, 2024],
+    "imageUrl": "/images/models/raider-125.webp"
+  }
+]
