@@ -11,7 +11,13 @@
     "sourceUrl": "local",
     "isGenerated": true,
     "sizeBytes": 443102,
-    "status": "ready"
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-002",
@@ -25,7 +31,13 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABrake_shoes.jpg",
     "isGenerated": false,
     "sizeBytes": 395957,
-    "status": "ready"
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "studio_framed",
+    "cutoutStatus": "fallback_framed",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-003",
@@ -39,7 +51,13 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAisobrake1.jpg",
     "isGenerated": false,
     "sizeBytes": 85271,
-    "status": "ready"
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-004",
@@ -52,8 +70,14 @@
     "license": "CC BY-SA 4.0",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:New_motorcycle_oil_filter_Hiflo_Filtro.jpg",
     "isGenerated": false,
-    "sizeBytes": 1835804,
-    "status": "ready"
+    "sizeBytes": 188449,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "studio_framed",
+    "cutoutStatus": "fallback_framed",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-005",
@@ -62,12 +86,18 @@
     "bucket": "air-filter",
     "filename": "air-filter-apache-160.jpg",
     "localPath": "/images/products/air-filter-apache-160.jpg",
-    "fileTitle": "File:IR HDR with Polarizing filter (3054081120).jpg",
-    "license": "CC BY 2.0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AIR_HDR_with_Polarizing_filter_(3054081120).jpg",
-    "isGenerated": false,
-    "sizeBytes": 367722,
-    "status": "ready"
+    "fileTitle": "AI Studio Photography — Rectangular Pleated Motorcycle Air Filter Cartridge with Molded Gasket",
+    "license": "Proprietary / Azab Moto Catalog",
+    "sourceUrl": "local",
+    "isGenerated": true,
+    "sizeBytes": 564898,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-006",
@@ -75,7 +105,19 @@
     "name": "فلتر بنزين داخلي أصلي TVS",
     "bucket": "fuel-filter",
     "filename": "fuel-filter-inline.jpg",
-    "status": "missing"
+    "localPath": "/images/products/fuel-filter-inline.jpg",
+    "fileTitle": "File:Small fuel filter-2.jpg",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASmall_fuel_filter-2.jpg",
+    "isGenerated": false,
+    "sizeBytes": 188214,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-007",
@@ -89,7 +131,13 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASpark_plug.jpg",
     "isGenerated": false,
     "sizeBytes": 67373,
-    "status": "ready"
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-008",
@@ -98,12 +146,18 @@
     "bucket": "stator-coil",
     "filename": "stator-coil-hlx-150.jpg",
     "localPath": "/images/products/stator-coil-hlx-150.jpg",
-    "fileTitle": "File:Goldschmidt alternator at Eilvese Germany 1928.jpg",
-    "license": "Public domain",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGoldschmidt_alternator_at_Eilvese_Germany_1928.jpg",
-    "isGenerated": false,
-    "sizeBytes": 181021,
-    "status": "ready"
+    "fileTitle": "AI Studio Photography — Motorcycle Stator Magneto Generator Coil with Copper Windings",
+    "license": "Proprietary / Azab Moto Catalog",
+    "sourceUrl": "local",
+    "isGenerated": true,
+    "sizeBytes": 619977,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-009",
@@ -111,7 +165,19 @@
     "name": "وحدة إشعال إلكتروني CDI رقمية أباتشي",
     "bucket": "cdi-unit",
     "filename": "cdi-unit-apache-160.jpg",
-    "status": "missing"
+    "localPath": "/images/products/cdi-unit-apache-160.jpg",
+    "fileTitle": "AI Studio Photography — Motorcycle Sealed Digital CDI Ignition Unit with Wiring Socket",
+    "license": "Proprietary / Azab Moto Catalog",
+    "sourceUrl": "local",
+    "isGenerated": true,
+    "sizeBytes": 480304,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-010",
@@ -119,7 +185,19 @@
     "name": "بطارية جافة TVS 12V 5Ah أصلية",
     "bucket": "battery-dry",
     "filename": "battery-dry-12v-5ah.jpg",
-    "status": "missing"
+    "localPath": "/images/products/battery-dry-12v-5ah.jpg",
+    "fileTitle": "File:12V VRLA Battery.jpg",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A12V_VRLA_Battery.jpg",
+    "isGenerated": false,
+    "sizeBytes": 403578,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-011",
@@ -127,7 +205,19 @@
     "name": "بطارية جيل 12V 9Ah أباتشي 200 عالية القدرة",
     "bucket": "battery-gel",
     "filename": "battery-gel-12v-9ah.jpg",
-    "status": "missing"
+    "localPath": "/images/products/battery-gel-12v-9ah.jpg",
+    "fileTitle": "File:12V VRLA Gel Battery.jpg",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A12V_VRLA_Gel_Battery.jpg",
+    "isGenerated": false,
+    "sizeBytes": 519257,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-012",
@@ -135,7 +225,19 @@
     "name": "بطارية اسكوتر TVS 12V 4Ah جوبيتر وإن تورك",
     "bucket": "battery-scooter",
     "filename": "battery-scooter-12v-4ah.jpg",
-    "status": "missing"
+    "localPath": "/images/products/battery-scooter-12v-4ah.jpg",
+    "fileTitle": "File:996R FIAMM battery.jpg",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A996R_FIAMM_battery.jpg",
+    "isGenerated": false,
+    "sizeBytes": 149348,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-013",
@@ -148,8 +250,14 @@
     "license": "CC BY-SA 3.0",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Motorcycle_tire_in_tire_warmer_(2).jpg",
     "isGenerated": false,
-    "sizeBytes": 1557325,
-    "status": "ready"
+    "sizeBytes": 216952,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "studio_framed",
+    "cutoutStatus": "fallback_framed",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-014",
@@ -163,15 +271,33 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Motorcycle_tyre_stack.jpg",
     "isGenerated": false,
     "sizeBytes": 381158,
-    "status": "ready"
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-015",
     "sku": "AZB-TIR-003",
     "name": "إطار خلفي خشن حمولة ثقيلة 3.00-17 TVS HLX",
-    "bucket": "tire-heavy",
+    "bucket": "tire-rear-knobby",
     "filename": "tire-heavy-duty-300-17.jpg",
-    "status": "missing"
+    "localPath": "/images/products/tire-heavy-duty-300-17.jpg",
+    "fileTitle": "File:Dunlop TT100 tyre.JPG",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADunlop_TT100_tyre.JPG",
+    "isGenerated": false,
+    "sizeBytes": 132636,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-016",
@@ -180,12 +306,18 @@
     "bucket": "engine-oil",
     "filename": "engine-oil-tru4-10w30.jpg",
     "localPath": "/images/products/engine-oil-tru4-10w30.jpg",
-    "fileTitle": "File:Motor oil bottles variousbrands.jpg",
-    "license": "CC BY 2.0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Motor_oil_bottles_variousbrands.jpg",
-    "isGenerated": false,
-    "sizeBytes": 361456,
-    "status": "ready"
+    "fileTitle": "AI Studio Photography — 1L Motorcycle 4T 10W-30 Engine Oil Bottle with Level Gauge",
+    "license": "Proprietary / Azab Moto Catalog",
+    "sourceUrl": "local",
+    "isGenerated": true,
+    "sizeBytes": 474343,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-017",
@@ -198,8 +330,14 @@
     "license": "Public domain",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Petro-canada_oil_bottle_products_7355.jpg",
     "isGenerated": false,
-    "sizeBytes": 1334509,
-    "status": "ready"
+    "sizeBytes": 120610,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "studio_framed",
+    "cutoutStatus": "fallback_framed",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-018",
@@ -207,7 +345,19 @@
     "name": "اسبراي تزييت جنزير عالي الالتصاق 400 مل",
     "bucket": "chain-lube",
     "filename": "chain-lube-spray-400ml.jpg",
-    "status": "missing"
+    "localPath": "/images/products/chain-lube-spray-400ml.jpg",
+    "fileTitle": "File:WD-40 in Can.jpg",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWD-40_in_Can.jpg",
+    "isGenerated": false,
+    "sizeBytes": 52306,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-019",
@@ -221,7 +371,13 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Motorcycles-Honda-MVX250F-Conrod-Piston_01.JPG",
     "isGenerated": false,
     "sizeBytes": 526969,
-    "status": "ready"
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-020",
@@ -230,12 +386,18 @@
     "bucket": "cylinder-gasket",
     "filename": "cylinder-gasket-apache-160.jpg",
     "localPath": "/images/products/cylinder-gasket-apache-160.jpg",
-    "fileTitle": "File:The steam engine and turbine; a text-book for engineering colleges (1911) (14761841094).jpg",
-    "license": "No restrictions",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe_steam_engine_and_turbine%3B_a_text-book_for_engineering_colleges_(1911)_(14761841094).jpg",
-    "isGenerated": false,
-    "sizeBytes": 816170,
-    "status": "ready"
+    "fileTitle": "AI Studio Photography — Precision Multi-Layer Steel (MLS) Motorcycle Cylinder Head Gasket",
+    "license": "Proprietary / Azab Moto Catalog",
+    "sourceUrl": "local",
+    "isGenerated": true,
+    "sizeBytes": 549436,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-021",
@@ -243,7 +405,19 @@
     "name": "سير كاتينة (جنزير تاكيهات) أصلي TVS",
     "bucket": "timing-chain",
     "filename": "timing-chain-hlx-150.jpg",
-    "status": "missing"
+    "localPath": "/images/products/timing-chain-hlx-150.jpg",
+    "fileTitle": "File:Roller chain of bike by ENUMA CHAIN MFG. CO.，LTD.jpg",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARoller_chain_of_bike_by_ENUMA_CHAIN_MFG._CO.%EF%BC%8CLTD.jpg",
+    "isGenerated": false,
+    "sizeBytes": 725017,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "studio_framed",
+    "cutoutStatus": "fallback_framed",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-022",
@@ -251,7 +425,19 @@
     "name": "طقم ورق دبرياج أصلي كامل أباتشي 200",
     "bucket": "clutch-plates",
     "filename": "clutch-plates-apache-200.jpg",
-    "status": "missing"
+    "localPath": "/images/products/clutch-plates-apache-200.jpg",
+    "fileTitle": "File:Clutch discs.jpg",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clutch_discs.jpg",
+    "isGenerated": false,
+    "sizeBytes": 207236,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "studio_framed",
+    "cutoutStatus": "fallback_framed",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-023",
@@ -265,7 +451,13 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMoto_Guzzi_Ambassador_with_sidecar_and_crash_bars.jpg",
     "isGenerated": false,
     "sizeBytes": 611134,
-    "status": "ready"
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "studio_framed",
+    "cutoutStatus": "fallback_framed",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   },
   {
     "id": "prod-024",
@@ -278,7 +470,13 @@
     "license": "CC BY 2.0",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADetailed_view_of_a_motorcycle_dashboard_and_handlebar_with_a_smartphone_mount.jpg",
     "isGenerated": false,
-    "sizeBytes": 12141340,
-    "status": "ready"
+    "sizeBytes": 145020,
+    "status": "ready",
+    "processed": true,
+    "processingMethod": "clean_cutout",
+    "cutoutStatus": "clean",
+    "unifiedCanvas": "800x800",
+    "unifiedBackground": "#FFFDF9 to #F6F1EA",
+    "groundShadow": true
   }
 ]

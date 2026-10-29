@@ -83,27 +83,27 @@ export function Footer() {
             <h3 className="font-heading text-sm font-bold text-heading">تصفح المتجر</h3>
             <ul className="mt-4 space-y-2.5 text-xs">
               <li>
-                <Link to="/" className="transition hover:text-accent">
+                <Link to="/" className="text-btn text-btn-muted text-xs">
                   الصفحة الرئيسية
                 </Link>
               </li>
               <li>
-                <Link to="/catalog" className="transition hover:text-accent">
+                <Link to="/catalog" className="text-btn text-btn-muted text-xs">
                   كتالوج قطع الغيار
                 </Link>
               </li>
               <li>
-                <Link to="/catalog/category/brakes" className="transition hover:text-accent">
+                <Link to="/catalog/category/brakes" className="text-btn text-btn-muted text-xs">
                   فرامل
                 </Link>
               </li>
               <li>
-                <Link to="/catalog/category/filters" className="transition hover:text-accent">
+                <Link to="/catalog/category/filters" className="text-btn text-btn-muted text-xs">
                   فلاتر
                 </Link>
               </li>
               <li>
-                <Link to="/catalog/category/oils" className="transition hover:text-accent">
+                <Link to="/catalog/category/oils" className="text-btn text-btn-muted text-xs">
                   زيوت TRU4
                 </Link>
               </li>
@@ -115,27 +115,27 @@ export function Footer() {
             <h3 className="font-heading text-sm font-bold text-heading">خدمة العملاء</h3>
             <ul className="mt-4 space-y-2.5 text-xs">
               <li>
-                <Link to="/track" className="transition hover:text-accent font-semibold text-accent">
+                <Link to="/track" className="text-btn text-btn-accent text-xs font-semibold">
                   تتبع حالة الطلب
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="transition hover:text-accent">
+                <Link to="/about" className="text-btn text-btn-muted text-xs">
                   من نحن
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="transition hover:text-accent">
+                <Link to="/contact" className="text-btn text-btn-muted text-xs">
                   تواصل معنا
                 </Link>
               </li>
               <li>
-                <Link to="/returns" className="transition hover:text-accent">
+                <Link to="/returns" className="text-btn text-btn-muted text-xs">
                   سياسة الاستبدال والاسترجاع
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className="transition hover:text-accent">
+                <Link to="/privacy" className="text-btn text-btn-muted text-xs">
                   سياسة الخصوصية
                 </Link>
               </li>

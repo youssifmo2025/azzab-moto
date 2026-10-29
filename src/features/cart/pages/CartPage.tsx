@@ -27,7 +27,7 @@ export default function CartPage() {
       <div className="container mx-auto px-4 max-w-5xl">
         {/* Breadcrumb */}
         <nav aria-label="مسار التنقل" className="mb-6 flex items-center gap-2 text-xs text-secondary">
-          <Link to="/" className="hover:text-heading">الرئيسية</Link>
+          <Link to="/" className="text-btn text-btn-muted text-xs">الرئيسية</Link>
           <span>/</span>
           <span className="text-heading font-medium" aria-current="page">سلة المشتريات</span>
         </nav>
@@ -43,7 +43,7 @@ export default function CartPage() {
             <button
               type="button"
               onClick={clearCart}
-              className="text-xs text-secondary hover:text-danger flex items-center gap-1 transition"
+              className="text-btn text-btn-muted text-xs hover:text-red-600 flex items-center gap-1"
             >
               <Trash2 className="h-3.5 w-3.5" />
               <span>إفراغ السلة</span>

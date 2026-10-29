@@ -1,0 +1,24 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="loginGlow" cx="0.5" cy="0.1" r="0.7">
+      <stop offset="0%" stop-color="#FF8200" stop-opacity="0.05" />
+      <stop offset="50%" stop-color="#F6F1EA" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#FFFDF9" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="loginBase" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="100%" stop-color="#F8F4EE" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#loginBase)" />
+  <rect width="1200" height="900" fill="url(#loginGlow)" />
+
+  <!-- Calmer, minimal architectural contours -->
+  <g opacity="0.65">
+    <circle cx="600" cy="950" r="620" stroke="#2B2B2B" stroke-opacity="0.025" stroke-width="1.5" />
+    <circle cx="600" cy="950" r="500" stroke="#FF8200" stroke-opacity="0.04" stroke-width="1" stroke-dasharray="12 8" />
+    <path d="M-100,200 C300,180 700,280 1300,140" stroke="#2B2B2B" stroke-opacity="0.02" stroke-width="1.5" fill="none" />
+  </g>
+</svg>
+

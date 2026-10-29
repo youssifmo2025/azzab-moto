@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MessageCircle, CheckCircle2, AlertCircle, ShoppingBag } from 'lucide-react'
+import { MessageCircle, CheckCircle2, AlertCircle, ShoppingBag, Check } from 'lucide-react'
 import type { Product } from '@/services/schemas/product'
 import { formatPrice } from '@/shared/utils/formatPrice'
 import { buildWhatsAppUrl, buildOrderMessage } from '@/shared/lib/whatsapp'
@@ -18,6 +18,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
   const { models } = useModels()
   const { addItem } = useCart()
   const [imgError, setImgError] = useState(false)
+  const [isAdded, setIsAdded] = useState(false)
 
   // Derive model names for compatibility display
   const compatibleModelNames = product.compatibility
@@ -39,8 +40,15 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
 
   const isAvailable = product.availability === 'in_stock'
 
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault()
+    addItem(product, 1)
+    setIsAdded(true)
+    setTimeout(() => setIsAdded(false), 1200)
+  }
+
   return (
-    <article className="group flex flex-col justify-between rounded-[10px] border border-border bg-surface p-4 card-hover">
+    <article className="group flex flex-col justify-between rounded-[12px] border border-border bg-surface p-4 card-hover overflow-hidden">
       {/* Top Media & Details link */}
       <div>
         <Link
@@ -101,27 +109,38 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
         </Link>
       </div>
 
-      {/* Bottom Price & Order CTA */}
+      {/* Bottom Price & Order CTA — prominent charcoal price with muted EGP suffix */}
       <div className="mt-4 pt-3 border-t border-border/60 flex items-center justify-between gap-2">
-        <div>
-          <span className="font-numeric tabular text-base font-extrabold text-accent sm:text-lg">
-            {formatPrice(product.price)}
+        <div className="flex items-baseline gap-1">
+          <span className="font-numeric tabular text-[19px] font-extrabold text-heading leading-none">
+            {formatPrice(product.price, { showCurrency: false })}
+          </span>
+          <span className="text-xs font-semibold text-secondary">
+            ج.م
           </span>
         </div>
 
-        {/* Order or Add to Cart CTA */}
+        {/* Order or Add to Cart CTA with momentary success state */}
         {features.cart ? (
           <button
             type="button"
-            onClick={(e) => {
-              e.preventDefault()
-              addItem(product, 1)
-            }}
+            onClick={handleAddToCart}
             aria-label={`إضافة ${product.name} إلى السلة`}
-            className="btn-press inline-flex items-center gap-1.5 rounded-[8px] bg-accent px-3 py-1.5 text-xs font-semibold text-white shadow-xs transition duration-150 hover:bg-accent-hover cursor-pointer"
+            className={`btn-primary px-3 py-1.5 text-xs font-semibold shadow-xs cursor-pointer transition-all duration-200 group-hover:shadow-sm ${
+              isAdded ? 'bg-success text-white' : ''
+            }`}
           >
-            <ShoppingBag className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>أضف للسلة</span>
+            {isAdded ? (
+              <>
+                <Check className="h-3.5 w-3.5 me-1" aria-hidden="true" />
+                <span>تمت الإضافة!</span>
+              </>
+            ) : (
+              <>
+                <ShoppingBag className="h-3.5 w-3.5 me-1" aria-hidden="true" />
+                <span>أضف للسلة</span>
+              </>
+            )}
           </button>
         ) : (
           <a
@@ -129,9 +148,9 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`طلب ${product.name} عبر واتساب`}
-            className="btn-press inline-flex items-center gap-1.5 rounded-[8px] border border-accent bg-transparent px-3 py-1.5 text-xs font-semibold text-accent transition duration-150 hover:bg-accent hover:text-white"
+            className="btn-secondary-outline px-3 py-1.5 text-xs font-semibold border-accent text-accent hover:bg-accent hover:text-white"
           >
-            <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
+            <MessageCircle className="h-3.5 w-3.5 me-1" aria-hidden="true" />
             <span>اطلب</span>
           </a>
         )}

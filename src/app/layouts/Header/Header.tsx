@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { Menu, MessageCircle, Search, Shield } from 'lucide-react'
 import logoImg from '@/assets/logo.png'
 import { siteConfig } from '@/app/config/site'
@@ -12,18 +12,37 @@ import { CartIcon } from '@/features/cart/components/CartIcon'
 
 export function Header() {
   const navigate = useNavigate()
+  const location = useLocation()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 8)
+    }
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const quickWhatsappUrl = buildWhatsAppUrl('السلام عليكم، أود الاستفسار عن قطع غيار TVS.')
 
+  const isCatalogActive =
+    location.pathname === '/catalog' || location.pathname.startsWith('/catalog/')
+  const isTrackingActive = location.pathname === '/track'
+
   return (
-    <header className="sticky top-0 z-40 w-full bg-surface shadow-xs">
+    <header
+      className={`sticky top-0 z-40 w-full bg-surface transition-shadow duration-200 ${
+        isScrolled ? 'shadow-md border-b border-border/80' : 'shadow-xs border-b border-border/40'
+      }`}
+    >
       {/* 1. Sand Announcement Strip */}
       <AnnouncementStrip />
 
       {/* 2. Main Navigation Bar (Low height showroom header) */}
-      <div className="border-b border-border bg-surface">
+      <div className="bg-surface">
         <div className="container mx-auto flex h-16 items-center justify-between gap-4 px-4 sm:h-18">
           {/* Logo & Dealer Label */}
           <div className="flex items-center gap-3">
@@ -32,7 +51,7 @@ export function Header() {
               type="button"
               onClick={() => setIsDrawerOpen(true)}
               aria-label="فتح القائمة الرئيسية"
-              className="btn-press flex h-10 w-10 items-center justify-center rounded-[8px] text-secondary hover:bg-alt hover:text-heading md:hidden"
+              className="btn-icon flex h-10 w-10 items-center justify-center rounded-[8px] text-secondary hover:bg-alt hover:text-heading md:hidden cursor-pointer"
             >
               <Menu className="h-5 w-5" aria-hidden="true" />
             </button>
@@ -66,6 +85,33 @@ export function Header() {
             <SearchBar />
           </div>
 
+          {/* Desktop Navigation Links — 28-32px gap, 15-16px weight-600, min 44px hit area */}
+          <nav aria-label="التنقل الرئيسي" className="hidden lg:flex items-center gap-7 xl:gap-8 mx-2">
+            {features.catalog && (
+              <Link
+                to="/catalog"
+                aria-current={isCatalogActive ? 'page' : undefined}
+                className={`text-btn text-btn-default min-h-[44px] py-2.5 px-1 text-[15px] font-semibold ${
+                  isCatalogActive ? 'is-active' : ''
+                }`}
+              >
+                كتالوج القطع
+              </Link>
+            )}
+
+            {features.orderTracking && (
+              <Link
+                to="/track"
+                aria-current={isTrackingActive ? 'page' : undefined}
+                className={`text-btn text-btn-default min-h-[44px] py-2.5 px-1 text-[15px] font-semibold ${
+                  isTrackingActive ? 'is-active' : ''
+                }`}
+              >
+                تتبع الطلب
+              </Link>
+            )}
+          </nav>
+
           {/* Actions & Enabled Feature Icons */}
           <div className="flex items-center gap-2 sm:gap-3">
             {/* Mobile search toggle */}
@@ -73,61 +119,38 @@ export function Header() {
               type="button"
               onClick={() => setIsMobileSearchOpen((prev) => !prev)}
               aria-label="فتح شريط البحث"
-              className="btn-press flex h-10 w-10 items-center justify-center rounded-[8px] text-secondary hover:bg-alt hover:text-accent md:hidden"
+              className="btn-icon flex h-10 w-10 items-center justify-center rounded-[8px] text-secondary hover:bg-alt hover:text-accent md:hidden cursor-pointer"
             >
               <Search className="h-5 w-5" aria-hidden="true" />
             </button>
 
-            {/* Catalog direct link (Starter feature: ON) */}
-            {features.catalog && (
-              <Link
-                to="/catalog"
-                className="hidden text-sm font-medium text-heading transition hover:text-accent lg:inline-flex"
-              >
-                كتالوج القطع
-              </Link>
-            )}
-
-            {/* Order Tracking (Business feature: ON) */}
-            {features.orderTracking && (
-              <Link
-                to="/track"
-                className="hidden text-sm font-medium text-heading transition hover:text-accent xl:inline-flex"
-              >
-                تتبع الطلب
-              </Link>
-            )}
-
-            {/* Admin Portal Button (Button element, not an anchor link, for crawler exclusion & security) */}
+            {/* Admin Portal Button */}
             <button
               type="button"
               onClick={() => navigate('/admin/login')}
               aria-label="لوحة الإدارة"
               title="لوحة الإدارة"
-              className="btn-press hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-[10px] border border-border bg-base text-secondary transition hover:border-accent hover:text-accent cursor-pointer"
+              className="btn-icon hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-[10px] border border-border bg-base text-secondary transition hover:border-accent hover:text-accent cursor-pointer"
             >
               <Shield className="h-4 w-4" aria-hidden="true" />
             </button>
 
-            {/* Shopping Cart (Business Feature: ON) */}
+            {/* Shopping Cart */}
             {features.cart && <CartIcon />}
 
-            {/* Direct WhatsApp Action (Starter feature: ON) */}
+            {/* Direct WhatsApp Action */}
             {features.whatsappOrder && (
               <a
                 href={quickWhatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="تواصل واطلب عبر واتساب مباشرة"
-                className="btn-press inline-flex items-center gap-2 rounded-[10px] bg-accent px-3 py-2 text-xs font-semibold text-white shadow-xs transition hover:bg-accent-hover sm:px-4 sm:py-2.5 sm:text-sm"
+                className="btn-primary px-3 py-2 text-xs font-semibold sm:px-4 sm:py-2.5 sm:text-sm cursor-pointer"
               >
-                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                <MessageCircle className="h-4 w-4 me-1.5" aria-hidden="true" />
                 <span className="hidden xs:inline">اطلب عبر واتساب</span>
               </a>
             )}
-
-            {/* NOTE: Disabled features in Starter: cart, favorites, account
-                are deliberately NOT rendered per AGENTS.md instructions. */}
           </div>
         </div>
 

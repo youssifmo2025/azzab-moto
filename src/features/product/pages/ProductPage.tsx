@@ -132,17 +132,17 @@ export default function ProductPage() {
           aria-label="مسار التنقل"
           className="mb-6 flex flex-wrap items-center gap-1.5 text-xs text-secondary"
         >
-          <Link to="/" className="hover:text-heading">
+          <Link to="/" className="text-btn text-btn-muted text-xs">
             الرئيسية
           </Link>
           <ChevronLeft className="h-3 w-3" aria-hidden="true" />
-          <Link to="/catalog" className="hover:text-heading">
+          <Link to="/catalog" className="text-btn text-btn-muted text-xs">
             الكتالوج
           </Link>
           {category && (
             <>
               <ChevronLeft className="h-3 w-3" aria-hidden="true" />
-              <Link to={`/catalog/category/${category.slug}`} className="hover:text-heading">
+              <Link to={`/catalog/category/${category.slug}`} className="text-btn text-btn-muted text-xs">
                 {category.name}
               </Link>
             </>
@@ -216,9 +216,12 @@ export default function ProductPage() {
               <span className="block text-xs text-secondary font-medium mb-1">
                 السعر للمستهلك (شامل الضريبة)
               </span>
-              <div className="flex items-baseline gap-2">
-                <span className="font-numeric tabular text-3xl font-extrabold text-accent sm:text-4xl">
-                  {formatPrice(product.price)}
+              <div className="flex items-baseline gap-1.5">
+                <span className="font-numeric tabular text-3xl font-extrabold text-heading sm:text-4xl leading-none">
+                  {formatPrice(product.price, { showCurrency: false })}
+                </span>
+                <span className="text-sm font-semibold text-secondary">
+                  ج.م
                 </span>
               </div>
             </div>
@@ -352,9 +355,14 @@ export default function ProductPage() {
       <div className="fixed bottom-0 start-0 end-0 z-30 flex items-center justify-between gap-4 border-t border-border bg-surface/95 px-4 py-3 backdrop-blur-xs shadow-lg md:hidden">
         <div>
           <span className="block text-[10px] text-secondary font-medium">السعر</span>
-          <span className="font-numeric tabular text-lg font-extrabold text-accent">
-            {formatPrice(product.price)}
-          </span>
+          <div className="flex items-baseline gap-1">
+            <span className="font-numeric tabular text-lg font-extrabold text-heading leading-none">
+              {formatPrice(product.price, { showCurrency: false })}
+            </span>
+            <span className="text-[11px] font-medium text-secondary">
+              ج.م
+            </span>
+          </div>
         </div>
         <div className="flex items-center gap-2">
           {features.cart && (

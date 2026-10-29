@@ -1,0 +1,46 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Showroom ambient warmth -->
+    <radialGradient id="stageGlow" cx="0.35" cy="0.48" r="0.55" fx="0.35" fy="0.48">
+      <stop offset="0%" stop-color="#FF8200" stop-opacity="0.09" />
+      <stop offset="50%" stop-color="#F6F1EA" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#FFFDF9" stop-opacity="0" />
+    </radialGradient>
+    
+    <linearGradient id="warmBase" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="60%" stop-color="#FAF6F0" />
+      <stop offset="100%" stop-color="#F6F1EA" />
+    </linearGradient>
+
+    <!-- Subtle rotor curve gradient -->
+    <linearGradient id="arcStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2B2B2B" stop-opacity="0.05" />
+      <stop offset="50%" stop-color="#FF8200" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#2B2B2B" stop-opacity="0.02" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base warm background fill -->
+  <rect width="1600" height="900" fill="url(#warmBase)" />
+
+  <!-- Showcase stage ambient radial spotlight (behind bike on left half) -->
+  <rect width="1600" height="900" fill="url(#stageGlow)" />
+
+  <!-- Procedural geometric arcs derived from Azab Moto emblem & ventilated brake disc -->
+  <g opacity="0.85">
+    <!-- Large sweeping aerodynamic outer curve -->
+    <path d="M-100,750 C250,720 500,600 680,380 C800,220 950,120 1200,60" stroke="url(#arcStroke)" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <path d="M-60,780 C270,750 520,630 700,410 C820,250 970,150 1220,90" stroke="url(#arcStroke)" stroke-width="1" stroke-dasharray="8 8" fill="none" />
+
+    <!-- Ventilated rotor precision circles -->
+    <circle cx="520" cy="450" r="340" stroke="#2B2B2B" stroke-opacity="0.04" stroke-width="1.5" stroke-dasharray="16 12" />
+    <circle cx="520" cy="450" r="260" stroke="#FF8200" stroke-opacity="0.05" stroke-width="1.5" />
+    <circle cx="520" cy="450" r="180" stroke="#2B2B2B" stroke-opacity="0.03" stroke-width="1" stroke-dasharray="6 6" />
+
+    <!-- Aerodynamic speed accents -->
+    <line x1="180" y1="620" x2="360" y2="600" stroke="#FF8200" stroke-opacity="0.12" stroke-width="2" stroke-linecap="round" />
+    <line x1="220" y1="650" x2="340" y2="637" stroke="#2B2B2B" stroke-opacity="0.06" stroke-width="1.5" stroke-linecap="round" />
+  </g>
+</svg>
+

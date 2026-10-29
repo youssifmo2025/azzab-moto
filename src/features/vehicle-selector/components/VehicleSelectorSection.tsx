@@ -36,19 +36,28 @@ export function VehicleSelectorSection() {
       id="vehicle-selector"
       ref={ref}
       aria-labelledby="vehicle-selector-heading"
-      className="border-t border-border bg-alt py-12"
+      className="relative overflow-hidden bg-alt pt-6 sm:pt-8 pb-12 sm:pb-14 border-b border-border/80"
     >
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl rounded-[16px] border border-border bg-surface p-6 shadow-card-hover sm:p-8">
-          <h2
-            id="vehicle-selector-heading"
-            className="font-heading text-xl font-extrabold text-heading sm:text-2xl"
-          >
-            اختار موتوسيكلك
-          </h2>
-          <p className="mt-1 text-sm text-body">ابحث عن القطع المتوافقة مع موديلك مباشرة</p>
+      <div className="container relative mx-auto px-4 z-10">
+        <div className="mx-auto max-w-3xl rounded-[18px] border border-border bg-surface p-6 shadow-sm sm:p-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-promo border border-accent/30 px-3 py-0.5 text-xs font-semibold text-accent-text mb-2 shadow-2xs">
+                تحديد دقيق للموديل
+              </span>
+              <h2
+                id="vehicle-selector-heading"
+                className="font-heading text-xl font-extrabold text-heading sm:text-2xl"
+              >
+                اختار موتوسيكلك
+              </h2>
+              <p className="mt-1 text-sm text-body">
+                ابحث عن القطع الأصلية المتوافقة تماماً مع دراجتك وسنة الصنع
+              </p>
+            </div>
+          </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {/* Model */}
             <div className="relative">
               <label htmlFor="vs-model" className="mb-1.5 block text-xs font-semibold text-heading">
@@ -62,11 +71,11 @@ export function VehicleSelectorSection() {
                     setSelectedModel(e.target.value)
                     setSelectedYear('')
                   }}
-                  className="w-full appearance-none rounded-[10px] border border-border bg-base py-2.5 ps-4 pe-9 text-sm text-heading transition focus:border-accent focus:outline-none"
+                  className="w-full appearance-none rounded-[10px] border border-border bg-white py-2.5 ps-4 pe-9 text-sm text-heading transition hover:border-border/90 focus:border-accent focus:ring-2 focus:ring-accent/18 focus:outline-none"
                 >
-                  <option value="">اختار الموديل</option>
+                  <option value="" className="bg-white text-heading">اختار الموديل</option>
                   {models.map((m) => (
-                    <option key={m.id} value={m.id}>
+                    <option key={m.id} value={m.id} className="bg-white text-heading">
                       {m.name}
                     </option>
                   ))}
@@ -89,11 +98,11 @@ export function VehicleSelectorSection() {
                   value={selectedYear}
                   onChange={(e) => setSelectedYear(e.target.value)}
                   disabled={!selectedModel}
-                  className="w-full appearance-none rounded-[10px] border border-border bg-base py-2.5 ps-4 pe-9 text-sm text-heading transition focus:border-accent focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                  className="w-full appearance-none rounded-[10px] border border-border bg-white py-2.5 ps-4 pe-9 text-sm text-heading transition hover:border-border/90 focus:border-accent focus:ring-2 focus:ring-accent/18 focus:outline-none disabled:cursor-not-allowed disabled:bg-alt/50 disabled:opacity-50"
                 >
-                  <option value="">اختار السنة</option>
+                  <option value="" className="bg-white text-heading">اختار السنة</option>
                   {availableYears.map((y) => (
-                    <option key={y} value={String(y)}>
+                    <option key={y} value={String(y)} className="bg-white text-heading">
                       {y}
                     </option>
                   ))}
@@ -118,11 +127,11 @@ export function VehicleSelectorSection() {
                   id="vs-category"
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full appearance-none rounded-[10px] border border-border bg-base py-2.5 ps-4 pe-9 text-sm text-heading transition focus:border-accent focus:outline-none"
+                  className="w-full appearance-none rounded-[10px] border border-border bg-white py-2.5 ps-4 pe-9 text-sm text-heading transition hover:border-border/90 focus:border-accent focus:ring-2 focus:ring-accent/18 focus:outline-none"
                 >
-                  <option value="">كل الأقسام</option>
+                  <option value="" className="bg-white text-heading">كل الأقسام</option>
                   {categories.map((c) => (
-                    <option key={c.id} value={c.id}>
+                    <option key={c.id} value={c.id} className="bg-white text-heading">
                       {c.name}
                     </option>
                   ))}
@@ -139,9 +148,9 @@ export function VehicleSelectorSection() {
             type="button"
             onClick={handleSearch}
             disabled={!canSearch}
-            className="btn-press mt-6 inline-flex w-full items-center justify-center gap-2 rounded-[10px] bg-accent px-6 py-3 text-sm font-semibold text-white shadow-xs transition hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto sm:px-10"
+            className="btn-primary mt-6 w-full sm:w-auto px-8 py-3.5 text-sm font-bold shadow-xs cursor-pointer disabled:cursor-not-allowed disabled:opacity-45 disabled:pointer-events-none"
           >
-            <Search className="h-4 w-4" aria-hidden="true" />
+            <Search className="h-4 w-4 me-2 btn-icon-nudge" aria-hidden="true" />
             <span>ابحث عن القطع المتوافقة</span>
           </button>
         </div>

@@ -173,9 +173,9 @@ export default function CheckoutPage() {
       <div className="container mx-auto px-4 max-w-5xl">
         {/* Breadcrumb */}
         <nav aria-label="مسار التنقل" className="mb-6 flex items-center gap-2 text-xs text-secondary">
-          <Link to="/" className="hover:text-heading">الرئيسية</Link>
+          <Link to="/" className="text-btn text-btn-muted text-xs">الرئيسية</Link>
           <span>/</span>
-          <Link to="/cart" className="hover:text-heading">سلة المشتريات</Link>
+          <Link to="/cart" className="text-btn text-btn-muted text-xs">سلة المشتريات</Link>
           <span>/</span>
           <span className="text-heading font-medium" aria-current="page">إتمام الطلب</span>
         </nav>

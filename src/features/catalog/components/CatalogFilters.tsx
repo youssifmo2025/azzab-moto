@@ -37,14 +37,25 @@ export function CatalogFilters({
             <Filter className="h-5 w-5 text-accent" aria-hidden="true" />
             <h2 className="font-heading text-lg font-bold text-heading">تصفية المنتجات</h2>
           </div>
-          <button
-            type="button"
-            onClick={onCloseMobileModal}
-            aria-label="إغلاق التصفية"
-            className="rounded-[8px] p-1.5 text-secondary hover:bg-alt hover:text-heading"
-          >
-            <X className="h-5 w-5" aria-hidden="true" />
-          </button>
+          <div className="flex items-center gap-3">
+            {hasActiveFilters && (
+              <button
+                type="button"
+                onClick={onReset}
+                className="text-btn text-btn-accent text-xs cursor-pointer"
+              >
+                <span>مسح الكل</span>
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={onCloseMobileModal}
+              aria-label="إغلاق التصفية"
+              className="rounded-[8px] p-1.5 text-secondary hover:bg-alt hover:text-heading cursor-pointer"
+            >
+              <X className="h-5 w-5" aria-hidden="true" />
+            </button>
+          </div>
         </div>
       )}
 
@@ -107,11 +118,10 @@ export function CatalogFilters({
           <button
             type="button"
             onClick={() => onFilterChange({ categoryId: undefined, page: 1 })}
-            className={`w-full rounded-[8px] px-3 py-2 text-start text-xs font-medium transition ${
-              !filters.categoryId
+            className={`w-full rounded-[8px] px-3 py-2 text-start text-xs font-medium transition ${!filters.categoryId
                 ? 'bg-accent text-white font-bold'
                 : 'text-body hover:bg-alt hover:text-heading'
-            }`}
+              }`}
           >
             كل الأقسام
           </button>
@@ -122,11 +132,10 @@ export function CatalogFilters({
                 key={c.id}
                 type="button"
                 onClick={() => onFilterChange({ categoryId: c.id, page: 1 })}
-                className={`w-full rounded-[8px] px-3 py-2 text-start text-xs font-medium transition ${
-                  isSelected
+                className={`w-full rounded-[8px] px-3 py-2 text-start text-xs font-medium transition ${isSelected
                     ? 'bg-accent text-white font-bold'
                     : 'text-body hover:bg-alt hover:text-heading'
-                }`}
+                  }`}
               >
                 {c.name}
               </button>
@@ -188,9 +197,20 @@ export function CatalogFilters({
       aria-label="خيارات تصفية الكتالوج"
       className="hidden rounded-[10px] border border-border bg-surface p-5 lg:block"
     >
-      <div className="flex items-center gap-2 mb-4 border-b border-border pb-3">
-        <Filter className="h-4 w-4 text-accent" aria-hidden="true" />
-        <h2 className="font-heading text-sm font-bold text-heading">تصفية النتائج</h2>
+      <div className="flex items-center justify-between mb-4 border-b border-border pb-3">
+        <div className="flex items-center gap-2">
+          <Filter className="h-4 w-4 text-accent" aria-hidden="true" />
+          <h2 className="font-heading text-sm font-bold text-heading">تصفية النتائج</h2>
+        </div>
+        {hasActiveFilters && (
+          <button
+            type="button"
+            onClick={onReset}
+            className="text-btn text-btn-accent text-xs cursor-pointer"
+          >
+            <span>مسح الكل</span>
+          </button>
+        )}
       </div>
       {content}
     </aside>

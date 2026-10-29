@@ -25,10 +25,10 @@ export function BestSellersSection() {
           </div>
           <Link
             to="/catalog"
-            className="inline-flex items-center gap-1 text-sm font-semibold text-accent transition hover:text-accent-hover"
+            className="text-btn text-btn-accent text-sm"
           >
             <span>عرض كل الكتالوج</span>
-            <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+            <ChevronLeft className="h-4 w-4 text-btn-arrow text-btn-arrow-forward" aria-hidden="true" />
           </Link>
         </div>
 

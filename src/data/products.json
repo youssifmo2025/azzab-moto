@@ -156,7 +156,7 @@
     "currency": "EGP",
     "availability": "in_stock",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Fuel_filter_cutaway.jpg/320px-Fuel_filter_cutaway.jpg"
+      "/images/products/fuel-filter-inline.jpg"
     ],
     "description": "فلتر بنزين مدمج لحماية رشاش الوقود أو الكربراتير من شوائب خزانات الوقود والصدأ.",
     "compatibility": [
@@ -245,7 +245,7 @@
     "currency": "EGP",
     "availability": "order_only",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/CDI_unit.jpg/320px-CDI_unit.jpg"
+      "/images/products/cdi-unit-apache-160.jpg"
     ],
     "description": "عقل الإشعال الإلكتروني الرقمي الأصلي المبرمج لمنحنى تسارع مثالي وعزم محرك سلس.",
     "compatibility": [
@@ -268,7 +268,7 @@
     "currency": "EGP",
     "availability": "in_stock",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yuasa_YTX9-BS_battery.jpg/320px-Yuasa_YTX9-BS_battery.jpg"
+      "/images/products/battery-dry-12v-5ah.jpg"
     ],
     "description": "بطارية موتوسيكل جافة صيانة مجانية، تيار تدوير مارش عالي ومقاومة ممتازة للاهتزازات.",
     "compatibility": [
@@ -296,7 +296,7 @@
     "currency": "EGP",
     "availability": "in_stock",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yuasa_YTX9-BS_battery.jpg/320px-Yuasa_YTX9-BS_battery.jpg"
+      "/images/products/battery-gel-12v-9ah.jpg"
     ],
     "description": "بطارية جيل متطورة بتقنية AGM توفر أداءً موثوقاً لنظام الحقن الإلكتروني والشاشة الرقمية والمصابيح الليد.",
     "compatibility": [
@@ -324,7 +324,7 @@
     "currency": "EGP",
     "availability": "in_stock",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yuasa_YTX9-BS_battery.jpg/320px-Yuasa_YTX9-BS_battery.jpg"
+      "/images/products/battery-scooter-12v-4ah.jpg"
     ],
     "description": "بطارية جافة بحجم مدمج مخصصة لسكوتر TVS مع تيار مارش سريع واستجابة فورية.",
     "compatibility": [
@@ -413,7 +413,7 @@
     "currency": "EGP",
     "availability": "in_stock",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Motorcycle_tire.jpg/320px-Motorcycle_tire.jpg"
+      "/images/products/tire-heavy-duty-300-17.jpg"
     ],
     "description": "إطار مصمم خصيصاً لأعمال الشحن والتحميل والعمل الشاق ومقاومة التمزق والثقوب في شوارع المحافظات.",
     "compatibility": [
@@ -507,7 +507,7 @@
     "currency": "EGP",
     "availability": "in_stock",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/WD-40_spray_bottle.jpg/320px-WD-40_spray_bottle.jpg"
+      "/images/products/chain-lube-spray-400ml.jpg"
     ],
     "description": "شحم جنزير شفاف يخترق الحلقات ويحمي من الصدأ وتطاير الشحم أثناء القيادة السريعة.",
     "compatibility": [
@@ -596,7 +596,7 @@
     "currency": "EGP",
     "availability": "in_stock",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Timing_chain.jpg/320px-Timing_chain.jpg"
+      "/images/products/timing-chain-hlx-150.jpg"
     ],
     "description": "جنزير كاتينة صامت عالي الصلابة يضمن توافق دوران عمود الكامات والكرنك بدون ارتخاء.",
     "compatibility": [
@@ -624,7 +624,7 @@
     "currency": "EGP",
     "availability": "in_stock",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lambretta_clutch_plates.jpg/320px-Lambretta_clutch_plates.jpg"
+      "/images/products/clutch-plates-apache-200.jpg"
     ],
     "description": "طقم ديسك وورق دبرياج فايبر أصلي لنقل العزم الكامل ومنع تفويت الكلتش تحت الأحمال.",
     "compatibility": [
