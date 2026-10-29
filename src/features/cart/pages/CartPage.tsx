@@ -227,7 +227,7 @@ export default function CartPage() {
                 <button
                   type="button"
                   onClick={() => navigate('/checkout')}
-                  className="w-full rounded-[10px] bg-accent py-3.5 text-center font-heading text-sm font-bold text-white shadow-xs hover:bg-accent-hover transition flex items-center justify-center gap-2 cursor-pointer"
+                  className="btn-press w-full rounded-[10px] bg-accent py-3.5 text-center font-heading text-sm font-bold text-white shadow-xs hover:bg-accent-hover transition flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>المتابعة لإتمام الطلب</span>
                   <ArrowRight className="h-4 w-4 rotate-180" />

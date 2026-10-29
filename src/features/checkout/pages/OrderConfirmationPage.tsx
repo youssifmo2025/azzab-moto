@@ -35,7 +35,7 @@ export default function OrderConfirmationPage() {
       </Helmet>
 
       <div className="container mx-auto px-4 max-w-2xl">
-        <div className="rounded-[10px] border border-border bg-surface p-8 sm:p-10 text-center shadow-xs">
+        <div className="animate-fade-in-up rounded-[10px] border border-border bg-surface p-8 sm:p-10 text-center shadow-xs">
           {/* Success Icon */}
           <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-success/10 text-success">
             <CheckCircle2 className="h-10 w-10" />
@@ -67,7 +67,7 @@ export default function OrderConfirmationPage() {
             {/* Primary Button: Track Order */}
             <Link
               to={`/track?orderNumber=${encodeURIComponent(orderNumber)}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-[10px] bg-accent px-6 py-3.5 font-heading text-sm font-bold text-white shadow-xs hover:bg-accent-hover transition cursor-pointer"
+              className="btn-press w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-[10px] bg-accent px-6 py-3.5 font-heading text-sm font-bold text-white shadow-xs hover:bg-accent-hover transition cursor-pointer"
             >
               <Search className="h-4 w-4" />
               <span>تابع طلبك الآن</span>
@@ -78,7 +78,7 @@ export default function OrderConfirmationPage() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-[10px] border border-border bg-base px-6 py-3.5 font-heading text-sm font-semibold text-heading hover:bg-neutral-light transition"
+              className="btn-press w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-[10px] border border-border bg-base px-6 py-3.5 font-heading text-sm font-semibold text-heading hover:bg-neutral-light transition cursor-pointer"
             >
               <MessageCircle className="h-4 w-4 text-accent" />
               <span>تأكيد عبر واتساب</span>

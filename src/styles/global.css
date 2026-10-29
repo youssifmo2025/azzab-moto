@@ -157,6 +157,129 @@ a {
   border-radius: var(--radius-sm);
 }
 
+/* ── Animation Keyframes ─────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+/* ── Animation Utilities ─────────────────────────────────────────────────── */
+.animate-fade-in-up {
+  animation: fadeInUp var(--motion-duration-slow) var(--motion-easing) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--motion-duration-normal) var(--motion-easing) both;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--motion-duration-normal) var(--motion-easing) both;
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 80ms; }
+.stagger-2 { animation-delay: 160ms; }
+.stagger-3 { animation-delay: 240ms; }
+.stagger-4 { animation-delay: 320ms; }
+
+/* ── Enhanced Input Field & Focus States ─────────────────────────────────── */
+.input-field {
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-easing),
+    box-shadow var(--motion-duration-fast) var(--motion-easing),
+    background-color var(--motion-duration-fast) var(--motion-easing);
+}
+
+.input-field:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(255, 130, 0, 0.15);
+  outline: none;
+}
+
+.input-field.input-error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.12);
+}
+
+/* ── Validation message animation ────────────────────────────────────────── */
+.field-error {
+  animation: fadeInUp 200ms var(--motion-easing) both;
+}
+
+/* ── Button press micro-interaction ─────────────────────────────────────── */
+.btn-press {
+  transition:
+    transform var(--motion-duration-fast) var(--motion-easing),
+    box-shadow var(--motion-duration-fast) var(--motion-easing),
+    background-color var(--motion-duration-fast) var(--motion-easing),
+    color var(--motion-duration-fast) var(--motion-easing),
+    border-color var(--motion-duration-fast) var(--motion-easing);
+}
+
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* ── Card hover elevation & soft glow ────────────────────────────────────── */
+.card-hover {
+  transition:
+    box-shadow var(--motion-duration-normal) var(--motion-easing),
+    transform var(--motion-duration-normal) var(--motion-easing),
+    border-color var(--motion-duration-normal) var(--motion-easing);
+}
+
+.card-hover:hover {
+  box-shadow: 0 10px 24px -4px rgba(43, 43, 43, 0.08), 0 2px 6px -1px rgba(255, 130, 0, 0.06);
+  transform: translateY(-3px);
+  border-color: rgba(255, 130, 0, 0.35);
+}
+
+/* ── Image Hover Gentle Zoom ─────────────────────────────────────────────── */
+.img-hover-zoom {
+  transition: transform var(--motion-duration-slow) var(--motion-easing);
+}
+
+.group:hover .img-hover-zoom {
+  transform: scale(1.06);
+}
+
 /* ── Reduced Motion ──────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *,

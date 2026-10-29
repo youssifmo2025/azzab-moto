@@ -39,7 +39,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
   const isAvailable = product.availability === 'in_stock'
 
   return (
-    <article className="group flex flex-col justify-between rounded-[10px] border border-border bg-surface p-4 transition duration-200 hover:-translate-y-1 hover:shadow-card-hover">
+    <article className="group flex flex-col justify-between rounded-[10px] border border-border bg-surface p-4 card-hover">
       {/* Top Media & Details link */}
       <div>
         <Link
@@ -75,7 +75,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
                 height={300}
                 loading={priority ? 'eager' : 'lazy'}
                 onError={() => setImgError(true)}
-                className="h-full w-full object-contain transition duration-200 group-hover:scale-105"
+                className="h-full w-full object-contain img-hover-zoom"
               />
             )}
 
@@ -133,7 +133,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
               addItem(product, 1)
             }}
             aria-label={`إضافة ${product.name} إلى السلة`}
-            className="inline-flex items-center gap-1.5 rounded-[8px] bg-accent px-3 py-1.5 text-xs font-semibold text-white shadow-xs transition duration-150 hover:bg-accent-hover cursor-pointer"
+            className="btn-press inline-flex items-center gap-1.5 rounded-[8px] bg-accent px-3 py-1.5 text-xs font-semibold text-white shadow-xs transition duration-150 hover:bg-accent-hover cursor-pointer"
           >
             <ShoppingBag className="h-3.5 w-3.5" aria-hidden="true" />
             <span>أضف للسلة</span>
@@ -144,7 +144,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`طلب ${product.name} عبر واتساب`}
-            className="inline-flex items-center gap-1.5 rounded-[8px] border border-accent bg-transparent px-3 py-1.5 text-xs font-semibold text-accent transition duration-150 hover:bg-accent hover:text-white"
+            className="btn-press inline-flex items-center gap-1.5 rounded-[8px] border border-accent bg-transparent px-3 py-1.5 text-xs font-semibold text-accent transition duration-150 hover:bg-accent hover:text-white"
           >
             <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
             <span>اطلب</span>

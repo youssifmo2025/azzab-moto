@@ -147,7 +147,7 @@ export default function OrderTrackingPage() {
               {/* Order Number */}
               <div>
                 <label htmlFor="orderNumber" className="block text-xs font-semibold text-heading mb-1.5">
-                  رقم الطلب <span className="text-danger">*</span>
+                  رقم الطلب <span className="text-error">*</span>
                 </label>
                 <input
                   id="orderNumber"
@@ -156,7 +156,7 @@ export default function OrderTrackingPage() {
                   value={orderNumber}
                   onChange={(e) => setOrderNumber(e.target.value.toUpperCase())}
                   placeholder="AZ-202610-XXXX"
-                  className="w-full text-right rounded-[8px] border border-border bg-base px-3.5 py-2.5 text-sm font-numeric tabular uppercase text-heading placeholder:text-secondary/60 focus:outline-hidden focus:ring-2 focus:ring-accent"
+                  className="input-field w-full text-right rounded-[8px] border border-border bg-base px-3.5 py-2.5 text-sm font-numeric tabular uppercase text-heading placeholder:text-secondary/60"
                   required
                 />
               </div>
@@ -164,7 +164,7 @@ export default function OrderTrackingPage() {
               {/* Phone */}
               <div>
                 <label htmlFor="phone" className="block text-xs font-semibold text-heading mb-1.5">
-                  رقم الهاتف المسجل بالطلب <span className="text-danger">*</span>
+                  رقم الهاتف المسجل بالطلب <span className="text-error">*</span>
                 </label>
                 <input
                   id="phone"
@@ -173,14 +173,14 @@ export default function OrderTrackingPage() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="01xxxxxxxxx"
-                  className="w-full text-right rounded-[8px] border border-border bg-base px-3.5 py-2.5 text-sm font-numeric tabular text-heading placeholder:text-secondary/60 focus:outline-hidden focus:ring-2 focus:ring-accent"
+                  className="input-field w-full text-right rounded-[8px] border border-border bg-base px-3.5 py-2.5 text-sm font-numeric tabular text-heading placeholder:text-secondary/60"
                   required
                 />
               </div>
             </div>
 
             {error && (
-              <div className="rounded-[8px] border border-danger/40 bg-danger/10 p-3.5 text-xs text-danger flex items-center gap-2">
+              <div className="field-error rounded-[8px] border border-error/40 bg-error/10 p-3.5 text-xs text-error flex items-center gap-2">
                 <AlertCircle className="h-4 w-4 shrink-0" />
                 <span>{error}</span>
               </div>
@@ -189,7 +189,7 @@ export default function OrderTrackingPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full rounded-[10px] bg-accent py-3 font-heading text-sm font-bold text-white shadow-xs hover:bg-accent-hover transition flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
+              className="btn-press w-full rounded-[10px] bg-accent py-3 font-heading text-sm font-bold text-white shadow-xs hover:bg-accent-hover transition flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
             >
               {isLoading ? (
                 <>
@@ -208,7 +208,7 @@ export default function OrderTrackingPage() {
 
         {/* Order Details & Timeline Display */}
         {orderResult && (
-          <div className="space-y-6">
+          <div className="animate-fade-in-up space-y-6">
             {/* Status Timeline Card */}
             <div className="rounded-[10px] border border-border bg-surface p-6 sm:p-8 shadow-xs">
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4 mb-6">
@@ -221,7 +221,7 @@ export default function OrderTrackingPage() {
 
                 <div className="flex items-center gap-2">
                   {isCancelled ? (
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-danger/10 px-3 py-1 text-xs font-bold text-danger">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-error/10 px-3 py-1 text-xs font-bold text-error">
                       <XCircle className="h-3.5 w-3.5" />
                       <span>تم إلغاء الطلب</span>
                     </span>

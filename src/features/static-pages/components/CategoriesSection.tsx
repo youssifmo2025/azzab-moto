@@ -62,19 +62,20 @@ export function CategoriesSection() {
 
         {/* Circular icons grid */}
         <div className="grid grid-cols-4 gap-4 sm:grid-cols-4 md:grid-cols-8 sm:gap-6">
-          {categories.map((cat) => {
+          {categories.map((cat, idx) => {
             const Icon = getCategoryIcon(cat.icon)
 
             return (
               <Link
                 key={cat.id}
                 to={`/catalog/category/${cat.slug}`}
-                className="group flex flex-col items-center text-center transition hover:-translate-y-1"
+                style={{ animationDelay: `${idx * 50}ms` }}
+                className="group flex flex-col items-center text-center transition duration-200 hover:-translate-y-1"
               >
                 {/* Sand circular icon with outline Lucide in #5B7083 */}
-                <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-surface border border-border shadow-xs transition duration-200 group-hover:border-accent group-hover:bg-promo group-hover:shadow-card-hover">
+                <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-surface border border-border shadow-xs transition duration-200 group-hover:border-accent group-hover:bg-promo group-hover:shadow-card-hover group-active:scale-95">
                   <Icon
-                    className="h-7 w-7 sm:h-8 sm:w-8 text-secondary transition duration-200 group-hover:text-accent"
+                    className="h-7 w-7 sm:h-8 sm:w-8 text-secondary transition duration-200 group-hover:text-accent group-hover:scale-110"
                     aria-hidden="true"
                   />
                 </div>

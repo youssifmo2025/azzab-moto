@@ -32,7 +32,7 @@ export function Header() {
               type="button"
               onClick={() => setIsDrawerOpen(true)}
               aria-label="فتح القائمة الرئيسية"
-              className="flex h-10 w-10 items-center justify-center rounded-[8px] text-secondary hover:bg-alt hover:text-heading md:hidden"
+              className="btn-press flex h-10 w-10 items-center justify-center rounded-[8px] text-secondary hover:bg-alt hover:text-heading md:hidden"
             >
               <Menu className="h-5 w-5" aria-hidden="true" />
             </button>
@@ -73,7 +73,7 @@ export function Header() {
               type="button"
               onClick={() => setIsMobileSearchOpen((prev) => !prev)}
               aria-label="فتح شريط البحث"
-              className="flex h-10 w-10 items-center justify-center rounded-[8px] text-secondary hover:bg-alt hover:text-accent md:hidden"
+              className="btn-press flex h-10 w-10 items-center justify-center rounded-[8px] text-secondary hover:bg-alt hover:text-accent md:hidden"
             >
               <Search className="h-5 w-5" aria-hidden="true" />
             </button>
@@ -104,7 +104,7 @@ export function Header() {
               onClick={() => navigate('/admin/login')}
               aria-label="لوحة الإدارة"
               title="لوحة الإدارة"
-              className="hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-[10px] border border-border bg-base text-secondary transition hover:border-accent hover:text-accent cursor-pointer"
+              className="btn-press hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-[10px] border border-border bg-base text-secondary transition hover:border-accent hover:text-accent cursor-pointer"
             >
               <Shield className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -119,7 +119,7 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="تواصل واطلب عبر واتساب مباشرة"
-                className="inline-flex items-center gap-2 rounded-[10px] bg-accent px-3 py-2 text-xs font-semibold text-white shadow-xs transition hover:bg-accent-hover sm:px-4 sm:py-2.5 sm:text-sm"
+                className="btn-press inline-flex items-center gap-2 rounded-[10px] bg-accent px-3 py-2 text-xs font-semibold text-white shadow-xs transition hover:bg-accent-hover sm:px-4 sm:py-2.5 sm:text-sm"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 <span className="hidden xs:inline">اطلب عبر واتساب</span>

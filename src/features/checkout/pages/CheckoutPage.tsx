@@ -185,7 +185,7 @@ export default function CheckoutPage() {
         </h1>
 
         {serverError && (
-          <div className="mb-6 rounded-[10px] border border-danger/40 bg-danger/10 p-4 text-sm text-danger flex items-start gap-3">
+          <div className="animate-fade-in-up mb-6 rounded-[10px] border border-error/40 bg-error/10 p-4 text-sm text-error flex items-start gap-3">
             <AlertCircle className="h-5 w-5 shrink-0 mt-0.5" />
             <div>
               <p className="font-bold">تعذر إتمام الطلب:</p>
@@ -222,7 +222,7 @@ export default function CheckoutPage() {
                   {/* Full Name */}
                   <div className="sm:col-span-2">
                     <label htmlFor="fullName" className="block text-xs font-semibold text-heading mb-1.5">
-                      الاسم بالكامل <span className="text-danger">*</span>
+                      الاسم بالكامل <span className="text-error">*</span>
                     </label>
                     <input
                       id="fullName"
@@ -230,20 +230,20 @@ export default function CheckoutPage() {
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       placeholder="مثال: أحمد محمد علي"
-                      className={`w-full rounded-[8px] border bg-base px-3.5 py-2.5 text-sm text-heading placeholder:text-secondary/60 focus:outline-hidden focus:ring-2 focus:ring-accent ${
-                        errors.fullName ? 'border-danger' : 'border-border'
+                      className={`input-field w-full rounded-[8px] border bg-base px-3.5 py-2.5 text-sm text-heading placeholder:text-secondary/60 ${
+                        errors.fullName ? 'border-error input-error' : 'border-border'
                       }`}
                       required
                     />
                     {errors.fullName && (
-                      <p className="mt-1 text-xs text-danger">{errors.fullName}</p>
+                      <p className="field-error mt-1 text-xs text-error">{errors.fullName}</p>
                     )}
                   </div>
 
                   {/* Phone */}
                   <div className="sm:col-span-2">
                     <label htmlFor="phone" className="block text-xs font-semibold text-heading mb-1.5">
-                      رقم الهاتف المحمول (مصر) <span className="text-danger">*</span>
+                      رقم الهاتف المحمول (مصر) <span className="text-error">*</span>
                     </label>
                     <input
                       id="phone"
@@ -253,7 +253,7 @@ export default function CheckoutPage() {
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="01xxxxxxxxx"
                       className={`w-full text-right rounded-[8px] border bg-base px-3.5 py-2.5 text-sm font-numeric tabular text-heading placeholder:text-secondary/60 focus:outline-hidden focus:ring-2 focus:ring-accent ${
-                        errors.phone ? 'border-danger' : 'border-border'
+                        errors.phone ? 'border-error input-error' : 'border-border'
                       }`}
                       required
                     />
@@ -261,7 +261,7 @@ export default function CheckoutPage() {
                       سيتصل بك مندوب الشحن لتأكيد ميعاد التوصيل على هذا الرقم.
                     </p>
                     {errors.phone && (
-                      <p className="mt-1 text-xs text-danger">{errors.phone}</p>
+                      <p className="field-error mt-1 text-xs text-error">{errors.phone}</p>
                     )}
                   </div>
                 </div>
@@ -277,13 +277,13 @@ export default function CheckoutPage() {
                   {/* Governorate */}
                   <div>
                     <label htmlFor="governorate" className="block text-xs font-semibold text-heading mb-1.5">
-                      المحافظة <span className="text-danger">*</span>
+                      المحافظة <span className="text-error">*</span>
                     </label>
                     <select
                       id="governorate"
                       value={governorate}
                       onChange={(e) => setGovernorate(e.target.value)}
-                      className="w-full rounded-[8px] border border-border bg-base px-3.5 py-2.5 text-sm text-heading focus:outline-hidden focus:ring-2 focus:ring-accent"
+                      className="input-field w-full rounded-[8px] border border-border bg-base px-3.5 py-2.5 text-sm text-heading cursor-pointer"
                     >
                       {EGYPTIAN_GOVERNORATES.map((gov) => (
                         <option key={gov} value={gov}>
@@ -296,7 +296,7 @@ export default function CheckoutPage() {
                   {/* City */}
                   <div>
                     <label htmlFor="city" className="block text-xs font-semibold text-heading mb-1.5">
-                      المدينة / المركز / الحي <span className="text-danger">*</span>
+                      المدينة / المركز / الحي <span className="text-error">*</span>
                     </label>
                     <input
                       id="city"
@@ -304,20 +304,20 @@ export default function CheckoutPage() {
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
                       placeholder="مثال: المعادي / شبين الكوم"
-                      className={`w-full rounded-[8px] border bg-base px-3.5 py-2.5 text-sm text-heading placeholder:text-secondary/60 focus:outline-hidden focus:ring-2 focus:ring-accent ${
-                        errors.city ? 'border-danger' : 'border-border'
+                      className={`input-field w-full rounded-[8px] border bg-base px-3.5 py-2.5 text-sm text-heading placeholder:text-secondary/60 ${
+                        errors.city ? 'border-error input-error' : 'border-border'
                       }`}
                       required
                     />
                     {errors.city && (
-                      <p className="mt-1 text-xs text-danger">{errors.city}</p>
+                      <p className="field-error mt-1 text-xs text-error">{errors.city}</p>
                     )}
                   </div>
 
                   {/* Detailed Address */}
                   <div className="sm:col-span-2">
                     <label htmlFor="address" className="block text-xs font-semibold text-heading mb-1.5">
-                      العنوان بالتفصيل <span className="text-danger">*</span>
+                      العنوان بالتفصيل <span className="text-error">*</span>
                     </label>
                     <input
                       id="address"
@@ -325,13 +325,13 @@ export default function CheckoutPage() {
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
                       placeholder="اسم الشارع، رقم المبنى، رقم الشقة، علامة مميزة بجوارك"
-                      className={`w-full rounded-[8px] border bg-base px-3.5 py-2.5 text-sm text-heading placeholder:text-secondary/60 focus:outline-hidden focus:ring-2 focus:ring-accent ${
-                        errors.address ? 'border-danger' : 'border-border'
+                      className={`input-field w-full rounded-[8px] border bg-base px-3.5 py-2.5 text-sm text-heading placeholder:text-secondary/60 ${
+                        errors.address ? 'border-error input-error' : 'border-border'
                       }`}
                       required
                     />
                     {errors.address && (
-                      <p className="mt-1 text-xs text-danger">{errors.address}</p>
+                      <p className="field-error mt-1 text-xs text-error">{errors.address}</p>
                     )}
                   </div>
 
@@ -346,7 +346,7 @@ export default function CheckoutPage() {
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       placeholder="مثال: الاستلام بعد الساعة 3 عصراً، أو الاتصال قبل الوصول بنصف ساعة"
-                      className="w-full rounded-[8px] border border-border bg-base px-3.5 py-2 text-sm text-heading placeholder:text-secondary/60 focus:outline-hidden focus:ring-2 focus:ring-accent resize-none"
+                      className="input-field w-full rounded-[8px] border border-border bg-base px-3.5 py-2 text-sm text-heading placeholder:text-secondary/60 resize-none"
                     />
                   </div>
                 </div>
@@ -418,7 +418,7 @@ export default function CheckoutPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full rounded-[10px] bg-accent py-3.5 text-center font-heading text-base font-bold text-white shadow-xs hover:bg-accent-hover transition flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
+                  className="btn-press w-full rounded-[10px] bg-accent py-3.5 text-center font-heading text-base font-bold text-white shadow-xs hover:bg-accent-hover transition flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>
