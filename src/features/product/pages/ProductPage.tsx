@@ -157,7 +157,7 @@ export default function ProductPage() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
           {/* Gallery Right */}
           <div>
-            <ProductGallery images={product.images} productName={product.name} />
+            <ProductGallery images={product.images} productName={product.name} categoryId={product.categoryId} />
           </div>
 
           {/* Details Left */}

@@ -7,6 +7,7 @@ import { buildWhatsAppUrl, buildOrderMessage } from '@/shared/lib/whatsapp'
 import { useModels } from '@/features/vehicle-selector/hooks/useModels'
 import { features } from '@/app/config/features'
 import { useCart } from '@/features/cart/context/CartContext'
+import { ProductFallbackImage } from '@/shared/components/ProductFallbackImage'
 
 interface ProductCardProps {
   product: Product
@@ -48,25 +49,9 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           aria-label={`عرض تفاصيل ${product.name}`}
         >
           {/* Product Image on white background with fixed aspect ratio */}
-          <div className="relative mb-3 flex aspect-square w-full items-center justify-center overflow-hidden rounded-[8px] bg-white p-2 border border-border/40">
+          <div className="relative mb-3 flex aspect-square w-full items-center justify-center overflow-hidden rounded-[8px] bg-white p-3 border border-border/60 shadow-2xs">
             {imgError || !product.images[0] ? (
-              <div className="flex flex-col items-center justify-center text-secondary/60">
-                <svg
-                  className="h-12 w-12"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                <span className="mt-1 text-[11px]">عزاب موتو TVS</span>
-              </div>
+              <ProductFallbackImage categoryId={product.categoryId} productName={product.name} />
             ) : (
               <img
                 src={product.images[0]}

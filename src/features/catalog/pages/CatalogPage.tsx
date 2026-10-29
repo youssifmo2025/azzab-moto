@@ -140,7 +140,7 @@ export default function CatalogPage() {
           <button
             type="button"
             onClick={() => setIsMobileFilterOpen(true)}
-            className="flex items-center gap-2 rounded-[8px] border border-border bg-base px-3.5 py-2 text-xs font-semibold text-heading hover:bg-alt lg:hidden"
+            className="btn-press flex items-center gap-2 rounded-[8px] border border-border bg-base px-3.5 py-2 text-xs font-semibold text-heading hover:bg-alt lg:hidden"
           >
             <Filter className="h-4 w-4 text-accent" aria-hidden="true" />
             <span>تصفية النتائج</span>
@@ -215,7 +215,7 @@ export default function CatalogPage() {
                     <button
                       type="button"
                       onClick={() => setVisibleCount((prev) => prev + ITEMS_PER_PAGE)}
-                      className="inline-flex items-center gap-2 rounded-[10px] border border-border bg-surface px-8 py-3 text-sm font-semibold text-heading shadow-xs transition hover:bg-alt hover:border-accent"
+                      className="btn-press inline-flex items-center gap-2 rounded-[10px] border border-border bg-surface px-8 py-3 text-sm font-semibold text-heading shadow-xs transition hover:bg-alt hover:border-accent"
                     >
                       <SlidersHorizontal className="h-4 w-4 text-secondary" aria-hidden="true" />
                       <span>

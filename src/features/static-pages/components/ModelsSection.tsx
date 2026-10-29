@@ -1,8 +1,59 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronLeft } from 'lucide-react'
+import { ChevronLeft, Bike } from 'lucide-react'
 import { useModels } from '@/features/vehicle-selector/hooks/useModels'
 import { useProducts } from '@/features/catalog/hooks/useProducts'
 import { useScrollReveal } from '@/shared/hooks/useScrollReveal'
+import { ProductFallbackImage } from '@/shared/components/ProductFallbackImage'
+import type { Model } from '@/services/schemas/model'
+
+interface ModelCardProps {
+  model: Model
+  partsCount: number
+}
+
+function ModelCard({ model, partsCount }: ModelCardProps) {
+  const [imgError, setImgError] = useState(false)
+
+  return (
+    <Link
+      to={`/catalog?modelId=${model.id}`}
+      className="group flex flex-col overflow-hidden rounded-[12px] border border-border/80 bg-surface card-hover shadow-2xs transition-all duration-300"
+    >
+      {/* Real motorcycle studio photography on clean light background */}
+      <div className="relative aspect-4/3 w-full overflow-hidden bg-alt/60 p-3 sm:p-4 flex items-center justify-center">
+        {imgError ? (
+          <ProductFallbackImage isMotorcycle productName={model.name} />
+        ) : (
+          <img
+            src={model.imageUrl}
+            alt={`دراجة ${model.name} — قطع غيار أصلية TVS`}
+            width={360}
+            height={270}
+            loading="lazy"
+            onError={() => setImgError(true)}
+            className="h-full w-full object-contain img-hover-zoom transition duration-500 group-hover:scale-105"
+          />
+        )}
+
+        {/* Small model badge */}
+        <span className="absolute bottom-2 start-2 inline-flex items-center gap-1 rounded-full bg-surface/90 px-2 py-0.5 text-[10px] font-semibold text-secondary shadow-2xs backdrop-blur-xs">
+          <Bike className="h-3 w-3 text-accent" aria-hidden="true" />
+          <span>{(model.nameAr || model.name).split(' ')[0]}</span>
+        </span>
+      </div>
+
+      <div className="p-3.5 sm:p-4">
+        <h3 className="font-heading text-sm font-bold text-heading transition group-hover:text-accent">
+          {model.name}
+        </h3>
+        <p className="mt-1 text-xs text-body font-numeric tabular">
+          {partsCount > 0 ? `${partsCount} قطعة غيار متوفرة` : 'قطع غيار أصلية'}
+        </p>
+      </div>
+    </Link>
+  )
+}
 
 export function ModelsSection() {
   const { models } = useModels()
@@ -39,31 +90,7 @@ export function ModelsSection() {
               p.compatibility.some((c) => c.modelId === model.id),
             ).length
 
-            return (
-              <Link
-                key={model.id}
-                to={`/catalog?modelId=${model.id}`}
-                className="group flex flex-col overflow-hidden rounded-[10px] border border-border bg-surface transition duration-200 hover:-translate-y-1 hover:shadow-card-hover"
-              >
-                {/* Real motorcycle image on light sand background */}
-                <div className="relative aspect-4/3 w-full overflow-hidden bg-alt p-4 flex items-center justify-center">
-                  <div className="flex h-full w-full items-center justify-center text-secondary/50">
-                    <span className="font-heading text-base font-bold text-secondary">
-                      {model.name}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-4">
-                  <h3 className="font-heading text-sm font-bold text-heading transition group-hover:text-accent">
-                    {model.name}
-                  </h3>
-                  <p className="mt-1 text-xs text-body font-numeric tabular">
-                    {partsCount > 0 ? `${partsCount} قطعة غيار متوفرة` : 'قطع غيار أصلية'}
-                  </p>
-                </div>
-              </Link>
-            )
+            return <ModelCard key={model.id} model={model} partsCount={partsCount} />
           })}
         </div>
       </div>

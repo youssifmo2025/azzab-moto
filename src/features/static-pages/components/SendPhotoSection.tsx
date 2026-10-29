@@ -47,7 +47,7 @@ export function SendPhotoSection() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-[10px] bg-accent px-6 py-3.5 text-sm font-semibold text-white shadow-xs transition hover:bg-accent-hover"
+                className="btn-press inline-flex items-center gap-2.5 rounded-[10px] bg-accent px-6 py-3.5 text-sm font-semibold text-white shadow-xs transition hover:bg-accent-hover"
               >
                 <MessageCircle className="h-5 w-5" aria-hidden="true" />
                 <span>ابعت صورة القطعة على واتساب</span>

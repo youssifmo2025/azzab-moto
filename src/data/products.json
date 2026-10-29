@@ -10,11 +10,21 @@
     "price": 380,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Motorcycle_disc_brake_pad.jpg/320px-Motorcycle_disc_brake_pad.jpg"],
+    "images": [
+      "/images/products/brake-pads.webp"
+    ],
     "description": "تيل فرامل أمامي عالي الأداء معتمد من مصنع TVS الأصلي. يوفر قوة كبح ممتازة وعمراً افتراضياً طويلاً في ظروف التشغيل الشاقة.",
     "compatibility": [
-      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
-      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 }
+      {
+        "modelId": "model-apache-160-4v",
+        "yearFrom": 2019,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-200-4v",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      }
     ]
   },
   {
@@ -28,11 +38,21 @@
     "price": 260,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Motorcycle_disc_brake_pad.jpg/320px-Motorcycle_disc_brake_pad.jpg"],
+    "images": [
+      "/images/products/rear-brake-shoe-hlx.jpg"
+    ],
     "description": "تيل فرامل خلفي أصلي خالي من الأسبستوس، يضمن استجابة فورية بدون صفير أو تآكل مفرط للطنبورة الخلفية.",
     "compatibility": [
-      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 }
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-star-city-plus",
+        "yearFrom": 2016,
+        "yearTo": 2023
+      }
     ]
   },
   {
@@ -46,11 +66,21 @@
     "price": 950,
     "currency": "EGP",
     "availability": "order_only",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Brake_disc_and_caliper.jpg/320px-Brake_disc_and_caliper.jpg"],
+    "images": [
+      "/images/products/brake-disc-apache-200.jpg"
+    ],
     "description": "ديسك فرامل من الفولاذ المعالج حرارياً بفتحات تهوية وتبريد سريعة لمنع سخونة الفرامل أثناء السرعات العالية.",
     "compatibility": [
-      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-apache-rr-310", "yearFrom": 2020, "yearTo": 2024 }
+      {
+        "modelId": "model-apache-200-4v",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-rr-310",
+        "yearFrom": 2020,
+        "yearTo": 2024
+      }
     ]
   },
   {
@@ -64,13 +94,31 @@
     "price": 120,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Oil_Filter.jpg/320px-Oil_Filter.jpg"],
+    "images": [
+      "/images/products/oil-filter-tru4.jpg"
+    ],
     "description": "فلتر زيت ورقي ذو ألياف دقيقة عالية الكثافة، يحجز الشوائب المعدنية الدقيقة ويحافظ على ضغط زيت مستقر في المحرك.",
     "compatibility": [
-      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
-      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 }
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-160-4v",
+        "yearFrom": 2019,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-200-4v",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-raider-125",
+        "yearFrom": 2021,
+        "yearTo": 2024
+      }
     ]
   },
   {
@@ -84,9 +132,17 @@
     "price": 220,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Air_filter.jpg/320px-Air_filter.jpg"],
+    "images": [
+      "/images/products/air-filter-apache-160.jpg"
+    ],
     "description": "فلتر هواء ورقي أصلي يوفر تدفق هواء نقي مع ترشيح فائق للغبار والأتربة لحماية غرفة الاحتراق.",
-    "compatibility": [{ "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 }]
+    "compatibility": [
+      {
+        "modelId": "model-apache-160-4v",
+        "yearFrom": 2019,
+        "yearTo": 2024
+      }
+    ]
   },
   {
     "id": "prod-006",
@@ -99,12 +155,26 @@
     "price": 95,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Fuel_filter_cutaway.jpg/320px-Fuel_filter_cutaway.jpg"],
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Fuel_filter_cutaway.jpg/320px-Fuel_filter_cutaway.jpg"
+    ],
     "description": "فلتر بنزين مدمج لحماية رشاش الوقود أو الكربراتير من شوائب خزانات الوقود والصدأ.",
     "compatibility": [
-      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-jupiter-110", "yearFrom": 2017, "yearTo": 2024 },
-      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 }
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-jupiter-110",
+        "yearFrom": 2017,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-star-city-plus",
+        "yearFrom": 2016,
+        "yearTo": 2023
+      }
     ]
   },
   {
@@ -118,12 +188,26 @@
     "price": 140,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Bougie_platine.jpg/320px-Bougie_platine.jpg"],
+    "images": [
+      "/images/products/spark-plug-bosch.jpg"
+    ],
     "description": "شمعة إشعال أصلية معتمدة من TVS مصنعة بواسطة بوش، تضمن إشعالاً قوياً واستهلاكاً مثالياً للبنزين.",
     "compatibility": [
-      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 },
-      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 }
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-raider-125",
+        "yearFrom": 2021,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-star-city-plus",
+        "yearFrom": 2016,
+        "yearTo": 2023
+      }
     ]
   },
   {
@@ -137,9 +221,17 @@
     "price": 850,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Alternator_1.jpg/320px-Alternator_1.jpg"],
+    "images": [
+      "/images/products/stator-coil-hlx-150.jpg"
+    ],
     "description": "ملف كهرباء نحاسي معزول بالكامل لتحمل درجات الحرارة المرتفعة، يعطي تيار شحن قوي ومستقر للبطارية والأنوار.",
-    "compatibility": [{ "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 }]
+    "compatibility": [
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      }
+    ]
   },
   {
     "id": "prod-009",
@@ -152,9 +244,17 @@
     "price": 720,
     "currency": "EGP",
     "availability": "order_only",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/CDI_unit.jpg/320px-CDI_unit.jpg"],
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/CDI_unit.jpg/320px-CDI_unit.jpg"
+    ],
     "description": "عقل الإشعال الإلكتروني الرقمي الأصلي المبرمج لمنحنى تسارع مثالي وعزم محرك سلس.",
-    "compatibility": [{ "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 }]
+    "compatibility": [
+      {
+        "modelId": "model-apache-160-4v",
+        "yearFrom": 2019,
+        "yearTo": 2024
+      }
+    ]
   },
   {
     "id": "prod-010",
@@ -167,11 +267,21 @@
     "price": 820,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yuasa_YTX9-BS_battery.jpg/320px-Yuasa_YTX9-BS_battery.jpg"],
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yuasa_YTX9-BS_battery.jpg/320px-Yuasa_YTX9-BS_battery.jpg"
+    ],
     "description": "بطارية موتوسيكل جافة صيانة مجانية، تيار تدوير مارش عالي ومقاومة ممتازة للاهتزازات.",
     "compatibility": [
-      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 }
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-star-city-plus",
+        "yearFrom": 2016,
+        "yearTo": 2023
+      }
     ]
   },
   {
@@ -185,11 +295,21 @@
     "price": 1250,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yuasa_YTX9-BS_battery.jpg/320px-Yuasa_YTX9-BS_battery.jpg"],
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yuasa_YTX9-BS_battery.jpg/320px-Yuasa_YTX9-BS_battery.jpg"
+    ],
     "description": "بطارية جيل متطورة بتقنية AGM توفر أداءً موثوقاً لنظام الحقن الإلكتروني والشاشة الرقمية والمصابيح الليد.",
     "compatibility": [
-      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-apache-rr-310", "yearFrom": 2020, "yearTo": 2024 }
+      {
+        "modelId": "model-apache-200-4v",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-rr-310",
+        "yearFrom": 2020,
+        "yearTo": 2024
+      }
     ]
   },
   {
@@ -203,11 +323,21 @@
     "price": 750,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yuasa_YTX9-BS_battery.jpg/320px-Yuasa_YTX9-BS_battery.jpg"],
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yuasa_YTX9-BS_battery.jpg/320px-Yuasa_YTX9-BS_battery.jpg"
+    ],
     "description": "بطارية جافة بحجم مدمج مخصصة لسكوتر TVS مع تيار مارش سريع واستجابة فورية.",
     "compatibility": [
-      { "modelId": "model-jupiter-110", "yearFrom": 2017, "yearTo": 2024 },
-      { "modelId": "model-ntorq-125", "yearFrom": 2019, "yearTo": 2024 }
+      {
+        "modelId": "model-jupiter-110",
+        "yearFrom": 2017,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-ntorq-125",
+        "yearFrom": 2019,
+        "yearTo": 2024
+      }
     ]
   },
   {
@@ -221,12 +351,26 @@
     "price": 1450,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Motorcycle_tire.jpg/320px-Motorcycle_tire.jpg"],
+    "images": [
+      "/images/products/tire-front-90-90-17.jpg"
+    ],
     "description": "كاوتش أمامي أصلي بنقشة توجيه دقيقة تضمن تماسكاً ممتازاً على الطرق الجافة والمبتلة في مصر.",
     "compatibility": [
-      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
-      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 }
+      {
+        "modelId": "model-apache-160-4v",
+        "yearFrom": 2019,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-200-4v",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-raider-125",
+        "yearFrom": 2021,
+        "yearTo": 2024
+      }
     ]
   },
   {
@@ -240,11 +384,21 @@
     "price": 2100,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Motorcycle_tire.jpg/320px-Motorcycle_tire.jpg"],
+    "images": [
+      "/images/products/tire-rear-130-70-17.jpg"
+    ],
     "description": "إطار خلفي عريض بمادة مطاطية مركبة تعطي ثباتاً فائقاً على المنعطفات وتتحمل درجات حرارة الإسفلت المرتفعة.",
     "compatibility": [
-      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
-      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 }
+      {
+        "modelId": "model-apache-160-4v",
+        "yearFrom": 2019,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-200-4v",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      }
     ]
   },
   {
@@ -258,11 +412,21 @@
     "price": 1150,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Motorcycle_tire.jpg/320px-Motorcycle_tire.jpg"],
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Motorcycle_tire.jpg/320px-Motorcycle_tire.jpg"
+    ],
     "description": "إطار مصمم خصيصاً لأعمال الشحن والتحميل والعمل الشاق ومقاومة التمزق والثقوب في شوارع المحافظات.",
     "compatibility": [
-      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 }
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-star-city-plus",
+        "yearFrom": 2016,
+        "yearTo": 2023
+      }
     ]
   },
   {
@@ -276,13 +440,31 @@
     "price": 240,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Motor_oil_from_different_manufacturers.jpg/320px-Motor_oil_from_different_manufacturers.jpg"],
+    "images": [
+      "/images/products/engine-oil-tru4-10w30.jpg"
+    ],
     "description": "زيت محرك 4T معتمد رسمياً من شركة TVS بمواصفة JASO MA2 لحماية الكلتش وتقليل الاحتكاك وحرارة المحرك.",
     "compatibility": [
-      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
-      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 },
-      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 }
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-160-4v",
+        "yearFrom": 2019,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-raider-125",
+        "yearFrom": 2021,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-star-city-plus",
+        "yearFrom": 2016,
+        "yearTo": 2023
+      }
     ]
   },
   {
@@ -296,11 +478,21 @@
     "price": 420,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Motor_oil_from_different_manufacturers.jpg/320px-Motor_oil_from_different_manufacturers.jpg"],
+    "images": [
+      "/images/products/engine-oil-synthetic-10w40.jpg"
+    ],
     "description": "زيت سباقات تخليقي 100% مخصص لمحركات أباتشي ذات الأداء العالي ومحركات التبريد بالزيت والمياه.",
     "compatibility": [
-      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-apache-rr-310", "yearFrom": 2020, "yearTo": 2024 }
+      {
+        "modelId": "model-apache-200-4v",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-rr-310",
+        "yearFrom": 2020,
+        "yearTo": 2024
+      }
     ]
   },
   {
@@ -314,14 +506,36 @@
     "price": 180,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/WD-40_spray_bottle.jpg/320px-WD-40_spray_bottle.jpg"],
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/WD-40_spray_bottle.jpg/320px-WD-40_spray_bottle.jpg"
+    ],
     "description": "شحم جنزير شفاف يخترق الحلقات ويحمي من الصدأ وتطاير الشحم أثناء القيادة السريعة.",
     "compatibility": [
-      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
-      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-apache-rr-310", "yearFrom": 2020, "yearTo": 2024 },
-      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 }
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-160-4v",
+        "yearFrom": 2019,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-200-4v",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-rr-310",
+        "yearFrom": 2020,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-raider-125",
+        "yearFrom": 2021,
+        "yearTo": 2024
+      }
     ]
   },
   {
@@ -335,9 +549,17 @@
     "price": 680,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Piston_honda_gy6.jpg/320px-Piston_honda_gy6.jpg"],
+    "images": [
+      "/images/products/piston-kit-hlx-150.jpg"
+    ],
     "description": "طقم بستم أصلي مع الشنابر والتيلة والصباع، مصنع من سبائك الألومنيوم المقاومة للحرارة والضغط العالي.",
-    "compatibility": [{ "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 }]
+    "compatibility": [
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      }
+    ]
   },
   {
     "id": "prod-020",
@@ -350,9 +572,17 @@
     "price": 190,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Head_gasket.jpg/320px-Head_gasket.jpg"],
+    "images": [
+      "/images/products/cylinder-gasket-apache-160.jpg"
+    ],
     "description": "جوان سلندر معدني متعدد الطبقات لمنع تسريب الضغط وزيت المحرك تحت أقسى ظروف التشغيل.",
-    "compatibility": [{ "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 }]
+    "compatibility": [
+      {
+        "modelId": "model-apache-160-4v",
+        "yearFrom": 2019,
+        "yearTo": 2024
+      }
+    ]
   },
   {
     "id": "prod-021",
@@ -365,11 +595,21 @@
     "price": 340,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Timing_chain.jpg/320px-Timing_chain.jpg"],
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Timing_chain.jpg/320px-Timing_chain.jpg"
+    ],
     "description": "جنزير كاتينة صامت عالي الصلابة يضمن توافق دوران عمود الكامات والكرنك بدون ارتخاء.",
     "compatibility": [
-      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 }
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-raider-125",
+        "yearFrom": 2021,
+        "yearTo": 2024
+      }
     ]
   },
   {
@@ -383,9 +623,17 @@
     "price": 760,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lambretta_clutch_plates.jpg/320px-Lambretta_clutch_plates.jpg"],
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lambretta_clutch_plates.jpg/320px-Lambretta_clutch_plates.jpg"
+    ],
     "description": "طقم ديسك وورق دبرياج فايبر أصلي لنقل العزم الكامل ومنع تفويت الكلتش تحت الأحمال.",
-    "compatibility": [{ "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 }]
+    "compatibility": [
+      {
+        "modelId": "model-apache-200-4v",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      }
+    ]
   },
   {
     "id": "prod-023",
@@ -398,9 +646,17 @@
     "price": 550,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Crash_bars_motorcycle.jpg/320px-Crash_bars_motorcycle.jpg"],
+    "images": [
+      "/images/products/crash-guard-hlx-150.jpg"
+    ],
     "description": "أكصدام حديد صلب مطلي إلكتروستاتيك لحماية جسم الموتور وأرجل السائق عند السقوط.",
-    "compatibility": [{ "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 }]
+    "compatibility": [
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      }
+    ]
   },
   {
     "id": "prod-024",
@@ -413,17 +669,51 @@
     "price": 390,
     "currency": "EGP",
     "availability": "in_stock",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Phone_holder_motorcycle.jpg/320px-Phone_holder_motorcycle.jpg"],
+    "images": [
+      "/images/products/phone-mount-aluminum.jpg"
+    ],
     "description": "حامل هاتف معدني فائق الثبات بقطع سيليكون ممتصة للاهتزاز لحماية حساسات كاميرا الهاتف.",
     "compatibility": [
-      { "modelId": "model-hlx-150", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-apache-160-4v", "yearFrom": 2019, "yearTo": 2024 },
-      { "modelId": "model-apache-200-4v", "yearFrom": 2018, "yearTo": 2024 },
-      { "modelId": "model-apache-rr-310", "yearFrom": 2020, "yearTo": 2024 },
-      { "modelId": "model-jupiter-110", "yearFrom": 2017, "yearTo": 2024 },
-      { "modelId": "model-ntorq-125", "yearFrom": 2019, "yearTo": 2024 },
-      { "modelId": "model-star-city-plus", "yearFrom": 2016, "yearTo": 2023 },
-      { "modelId": "model-raider-125", "yearFrom": 2021, "yearTo": 2024 }
+      {
+        "modelId": "model-hlx-150",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-160-4v",
+        "yearFrom": 2019,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-200-4v",
+        "yearFrom": 2018,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-apache-rr-310",
+        "yearFrom": 2020,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-jupiter-110",
+        "yearFrom": 2017,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-ntorq-125",
+        "yearFrom": 2019,
+        "yearTo": 2024
+      },
+      {
+        "modelId": "model-star-city-plus",
+        "yearFrom": 2016,
+        "yearTo": 2023
+      },
+      {
+        "modelId": "model-raider-125",
+        "yearFrom": 2021,
+        "yearTo": 2024
+      }
     ]
   }
 ]

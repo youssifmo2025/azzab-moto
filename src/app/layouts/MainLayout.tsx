@@ -9,7 +9,7 @@ import { CartDrawer } from '@/features/cart/components/CartDrawer'
 export function MainLayout() {
   return (
     <CartProvider>
-      <div className="flex min-h-screen flex-col bg-base text-body font-body selection:bg-accent/20 selection:text-accent">
+      <div className="flex min-h-screen flex-col bg-base text-body font-body selection:bg-accent/20 selection:text-accent bg-showroom-ambient">
         {/* 1. Skip-to-content accessibility link */}
         <a
           href="#main-content"

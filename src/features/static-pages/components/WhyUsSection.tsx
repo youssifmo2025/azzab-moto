@@ -51,12 +51,12 @@ export function WhyUsSection() {
             return (
               <div
                 key={idx}
-                className="flex flex-col items-center text-center sm:items-start sm:text-start"
+                className="group flex flex-col items-center text-center sm:items-start sm:text-start transition duration-200"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-alt text-secondary mb-4">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-surface border border-border/80 text-secondary transition-all duration-200 group-hover:border-accent/40 group-hover:bg-promo group-hover:text-accent group-hover:shadow-xs mb-4">
+                  <Icon className="h-6 w-6 transition-transform duration-200 group-hover:scale-105" aria-hidden="true" />
                 </div>
-                <h3 className="font-heading text-base font-bold text-heading">{item.title}</h3>
+                <h3 className="font-heading text-base font-bold text-heading transition-colors duration-200 group-hover:text-accent">{item.title}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-body">{item.desc}</p>
               </div>
             )

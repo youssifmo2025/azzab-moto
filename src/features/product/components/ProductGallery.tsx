@@ -1,11 +1,13 @@
+import { ProductFallbackImage } from '@/shared/components/ProductFallbackImage'
 import { useState, useRef, type KeyboardEvent } from 'react'
 
 interface ProductGalleryProps {
   images: string[]
   productName: string
+  categoryId?: string
 }
 
-export function ProductGallery({ images, productName }: ProductGalleryProps) {
+export function ProductGallery({ images, productName, categoryId }: ProductGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [imgError, setImgError] = useState<Record<number, boolean>>({})
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([])
@@ -33,25 +35,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
       {/* Large Hero Image on Pure White Background */}
       <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-[12px] border border-border bg-white p-6 shadow-xs">
         {imgError[selectedIndex] || !currentImage ? (
-          <div className="flex flex-col items-center justify-center text-secondary/60">
-            <svg
-              className="h-20 w-20"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.2}
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-            <span className="mt-2 text-xs font-medium text-body">
-              قطع غيار TVS الأصلية — عزاب موتو
-            </span>
-          </div>
+          <ProductFallbackImage categoryId={categoryId} productName={productName} />
         ) : (
           <img
             src={currentImage}

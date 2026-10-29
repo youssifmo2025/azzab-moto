@@ -140,7 +140,7 @@ export function CatalogFilters({
         <button
           type="button"
           onClick={onReset}
-          className="flex w-full items-center justify-center gap-1.5 rounded-[10px] border border-border bg-surface px-4 py-2.5 text-xs font-semibold text-secondary transition hover:bg-alt hover:text-heading"
+          className="btn-press flex w-full items-center justify-center gap-1.5 rounded-[10px] border border-border bg-surface px-4 py-2.5 text-xs font-semibold text-secondary transition hover:bg-alt hover:text-heading"
         >
           <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
           <span>إعادة ضبط الفلاتر</span>
@@ -152,7 +152,7 @@ export function CatalogFilters({
         <button
           type="button"
           onClick={onCloseMobileModal}
-          className="w-full rounded-[10px] bg-accent py-3 text-sm font-bold text-white shadow-xs transition hover:bg-accent-hover"
+          className="btn-press w-full rounded-[10px] bg-accent py-3 text-sm font-bold text-white shadow-xs transition hover:bg-accent-hover"
         >
           تطبيق الفلاتر
         </button>

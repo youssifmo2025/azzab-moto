@@ -34,7 +34,7 @@ export function WorkshopDiscountSection() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-[10px] bg-accent px-6 py-3 text-sm font-semibold text-white shadow-xs transition hover:bg-accent-hover"
+            className="btn-press inline-flex shrink-0 items-center gap-2 rounded-[10px] bg-accent px-6 py-3 text-sm font-semibold text-white shadow-xs transition hover:bg-accent-hover"
           >
             <MessageCircle className="h-4 w-4" aria-hidden="true" />
             <span>تواصل بخصوص خصم الورش</span>

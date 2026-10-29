@@ -139,7 +139,7 @@ export function VehicleSelectorSection() {
             type="button"
             onClick={handleSearch}
             disabled={!canSearch}
-            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-[10px] bg-accent px-6 py-3 text-sm font-semibold text-white shadow-xs transition hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto sm:px-10"
+            className="btn-press mt-6 inline-flex w-full items-center justify-center gap-2 rounded-[10px] bg-accent px-6 py-3 text-sm font-semibold text-white shadow-xs transition hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto sm:px-10"
           >
             <Search className="h-4 w-4" aria-hidden="true" />
             <span>ابحث عن القطع المتوافقة</span>
